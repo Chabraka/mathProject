@@ -1,29 +1,17 @@
-let r = Math.random();
-//console.log("r = " + r);
+// Variables
+let nb_tirage = 100;
+let random = Math.random();
+let parameter = 0.6;
 
-let p = 0.68;
+// Main
+console.log(random);
+let geo_number = geometric(parameter, random);
+let moyenne = moyGeo(parameter, random, nb_tirage);
+let esperance = esperanceGeo(parameter);
+let variance = varianceGeo(parameter);
 
-let prob= p;
-let k=1;
-
-let nb_tirage=1000;
-let probEsp = 0;
-
-for(let i=0; i<nb_tirage; i++){
-    
-    while (prob < r) {
-        prob += Math.pow(1-p,k-1)*p;
-        //console.log("etape " + prob);
-        k++;
-    }
-    
-    probEsp +=prob;
-    //console.log("fin " + prob);
-    //console.log("nbr etapes " + (k-1));
-}
-
-probEsp = probEsp/nb_tirage;
-
-
-console.log("Esperance : " + probEsp);
-console.log("Esperance à trouver " + (1/p));
+// Affichage
+console.log("X value : " + geo_number);
+console.log("Moyenne : " + moyenne);
+console.log("Espérance : " + esperance);
+console.log("Variance : " + variance);
