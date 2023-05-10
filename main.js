@@ -1,7 +1,8 @@
 let nb_tirages = 100;
 let random;
 let entier_random;
-let parametre = 0.6;
+let parametre = 0.3;
+let param_poisson = 6;
 
 /* --- Bernouilli --- */
 console.log("/* BERNOUILLI */");
@@ -74,3 +75,19 @@ console.log("X : " + entier_random);
 console.log("Espérance : " + esp_unif);
 console.log("Variance : " + var_unif);
 console.log("Ecart-type : " + ecart_type_bin);
+
+/* --- Poisson --- */
+console.log("/* POISSON */");
+
+random = Math.random();
+console.log(random);
+
+let nb_poisson = poisson(param_poisson, random);
+let esp_poisson = esperancePoisson(param_poisson);
+let var_poisson = variancePoisson(param_poisson);
+let ecart_type_poisson = ecartTypePoisson(param_poisson);
+
+console.log("X : " + nb_poisson);
+console.log("Espérance : " + esp_poisson);
+console.log("Variance : " + var_poisson);
+console.log("Ecart-type : " + ecart_type_poisson);

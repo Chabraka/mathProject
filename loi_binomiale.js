@@ -3,7 +3,7 @@ function factorielle(n) {
     // Condition d'arrêt
   if (n === 0 || n === 1) { return 1;}
     // Récursivité
-  return n * fact(n-1);
+  return n * factorielle(n-1);
 }
 
 function probaBin(n, k, param) {
