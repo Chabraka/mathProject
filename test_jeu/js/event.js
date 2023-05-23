@@ -63,8 +63,20 @@ function foundArmor() {
 
 // Fonction pour avancer dans la forêt
 function advanceInForest() {
-
+    const encounter = Math.random(); // Générer un nombre aléatoire entre 0 et 1
+  
+    if (encounter < 1 / 3) {
+      // Rencontrer un personnage
+      meetCharacters()
+    } else {
+      // Rencontrer un monstre
+      meetMonsters()
+    }
 }
+
+
+
+
 
 function GameOver() {
     lifePv=0;

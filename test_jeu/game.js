@@ -21,6 +21,9 @@ document.querySelector('#dialogueOptions').addEventListener('click', function(ev
 function startGame() {
 
     // Options initiales
+    lifePV = 150;
+    money = 100;
+    maxLifePV = 200;
     updateStats();
     changeBackground(background);
     showMessage('Bienvenue dans Fantastic Adventure ! Choisissez votre prochaine action.');
@@ -54,6 +57,7 @@ function startGame() {
         else if (option === 'Réessayer') {
             startGame();
         }
+        
     });
 
     
