@@ -35,3 +35,35 @@ function updateStats() {
   document.querySelector('.lifePV').innerHTML = heartsHTML;
   document.querySelector('.money').textContent = money;
 }
+
+async function updateStatsWithEquipment(equipment)
+   {
+
+    await delay(2000);
+      if (equipment.category === 'artefact') {
+        maxLifePV += equipment.value;
+        updateStats();
+        showMessage('Votre maximum de points de vie est de ' + maxLifePV);
+        artefacts.push(equipment.name);
+        console.log(artefacts);
+      } else if (equipment.category === 'bouclier') {
+        showMessage('Votre défense est de ' + equipment.value);
+        if (equipment.value > defense) {
+          defense = equipment.value;
+          equipmentDef = equipment.name;
+          console.log(defense);
+          console.log(equipmentDef);
+          updateStats();
+        }
+      } else if (equipment.category === 'épée') {
+        showMessage('Votre attaque est de ' + equipment.value);
+        if (equipment.value > attaque) {
+          attaque = equipment.value;
+          equipmentAtt = equipment.name;
+          console.log(attaque);
+          console.log(equipmentAtt);
+          updateStats();
+        }
+      }
+
+  }

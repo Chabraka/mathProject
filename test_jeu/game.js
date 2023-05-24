@@ -3,6 +3,11 @@ let lifePV = 150;
 let money = 100;
 let maxLifePV = 200;
 
+const artefacts = [];
+let defense = 0;
+let equipmentDef = "T-shirt"
+let attaque = 0;
+let equipmentAtt = "Stylo"
 
 let background = 'images/background/room.gif';
 

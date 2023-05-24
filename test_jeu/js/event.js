@@ -10,6 +10,7 @@ function stayHome() {
 
 // Fonction pour rentrer chez soi depuis la forêt
 function goBackHome() {
+    clearImage();
     const maxLostPv = Math.floor(maxLifePV / 3); // Quantité maximale de points de vie que l'on peut perdre
     const heartsLost = Math.floor(Math.random() * (maxLostPv + 1)); // Perdre un nombre aléatoire de points de vie entre 0 et maxLostPv
     
@@ -48,32 +49,33 @@ function goOutside() {
     showOptions(['']);
     setTimeout(function() {
         changeBackground('images/background/foret.jpg');
-        showMessage('Vous êtes dans le portail');
+        showMessage('Poussez par la curiosité, vous êtes rentré dans le portail');
         showOptions(['Avancer', 'Rentrer chez soi']);
     }, 2000);
 }
 
-// Exemple de mise à jour de maxLifePV lorsque le joueur trouve une armure
-function foundArmor() {
-    maxLifePV = 200; // Nouvelle valeur maximale des points de vie
-    hearts = Math.min(hearts, maxLifePV); // Ajustement des points de vie actuels si nécessaire
-    updateStats();
-  }
 
 
 // Fonction pour avancer dans la forêt
-function advanceInForest() {
+async function advanceInForest() {
     clearImage();
-    
+    showMessage("Vous décidez d'avancer.")
+    showOptions(['']);
+
+    console.log(eventInProgress);
+    await delay(1700);
+
     const encounter = Math.random(); // Générer un nombre aléatoire entre 0 et 1
-  
+
     if (encounter < 1 / 3) {
-      // Rencontrer un personnage
-      meetCharacters()
+    // Rencontrer un personnage
+    meetCharacters()
     } else {
-      // Rencontrer un monstre
-      meetMonsters()
+    // Rencontrer un monstre
+    meetCharacters()
+    //meetMonsters()
     }
+
 }
 
 
@@ -81,6 +83,7 @@ function advanceInForest() {
 
 
 function GameOver() {
+    clearImage();
     lifePv=0;
     updateStats();
     changeBackground('images/background/monster.png');
