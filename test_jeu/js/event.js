@@ -79,9 +79,6 @@ async function advanceInForest() {
 }
 
 
-
-
-
 function GameOver() {
     clearImage();
     lifePv=0;
