@@ -1,5 +1,3 @@
-
-
 function updateStats() {
   const maxHearts = 10; // Nombre maximum de cœurs affichés
   const heartsPerHeartContainer = Math.ceil(maxLifePV / maxHearts); // Calcul du nombre de points de vie par cœur affiché

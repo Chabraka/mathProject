@@ -1,21 +1,30 @@
+let eventInProgress = false; // Variable pour suivre si un événement est en cours
+
 function meetMonsters() {
-    const encounter = Math.random(); // Génère un nombre aléatoire entre 0 et 1
-    let monster = '';
-  
-    // Déterminer le monstre rencontré en fonction de la loi géométrique
-    if (encounter < 0.2) {
-      monster = 'Slime'; // 20% de chance de rencontrer un slime
-    } else if (encounter < 0.4) {
-      monster = 'Gobelin'; // 20% de chance de rencontrer un gobelin
-    } else if (encounter < 0.6) {
-      monster = 'Orc'; // 20% de chance de rencontrer un orc
-    } else if (encounter < 0.75) {
-      monster = 'Troll'; // 15% de chance de rencontrer un troll
-    } else if (encounter < 0.9) {
-      monster = 'Griffon'; // 15% de chance de rencontrer un griffon
-    } else {
-      monster = 'Dragon'; // 10% de chance de rencontrer un dragon
-    }
+  if (eventInProgress) {
+    return; // Si un événement est déjà en cours, ne pas déclencher une nouvelle rencontre
+  }
+
+  eventInProgress = true; // Marquer qu'un événement est en cours
+
+  let monster = '';
+  //const geoNumber = geometrique(0.7, Math.random());
+  const geoNumber = Math.floor(Math.random()*10)
+
+  switch(geoNumber) {
+    case 1 :
+      monster = 'Slime'; 
+    case 2 :
+      monster = 'Gobelin'; 
+    case 3 :
+      monster = 'Orc'; 
+    case 4 :
+      monster = 'Troll';
+    case 5 :
+      monster = 'Griffon'; 
+    default : 
+      monster = 'Dragon';
+    } 
   
     // Afficher le dialogue ou déclencher l'action correspondante au monstre rencontré
     showMessage('Vous rencontrez un ' + monster + '.');

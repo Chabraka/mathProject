@@ -7,7 +7,7 @@ function meetCharacters() {
 
   eventInProgress = true; // Marquer qu'un événement est en cours
 
-  //Loi de poisson
+  
   const encounter = Math.random();
 
   if (encounter < 0.4) {
@@ -19,6 +19,21 @@ function meetCharacters() {
   } else {
     meetSoigneur(); // Rencontre avec la soigneuse
   }
+
+  //Loi de poisson
+  // const poissonNumber = poisson(6, Math.random())
+
+  /*
+  if (poissonNumber == 6) {
+    meetMarchand();  // Rencontre avec la joueuse
+  } else if (poissonNumber == 5 ) {
+    meetMarchand();  // Rencontre avec le marchand
+  } else if (poissonNumber == 7) {
+    meetAventurier(); // Rencontre avec l'aventurier
+  } else {
+    meetSoigneur(); // Rencontre avec la soigneuse
+  } */
+
 }
 
 async function meetSoigneur() {

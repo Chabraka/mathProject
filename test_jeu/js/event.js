@@ -1,5 +1,3 @@
-
-
 // Fonction pour rester chez soi
 function stayHome() {
     lifePV = maxLifePV;
@@ -65,19 +63,19 @@ async function advanceInForest() {
     console.log(eventInProgress);
     await delay(1700);
 
-    const encounter = Math.random(); // Générer un nombre aléatoire entre 0 et 1
+    /* Lois */
+    const bernNumber = bernouilli(1/3, Math.random());
 
-    if (encounter < 1 / 3) {
+    if (bernNumber == 1) {
     // Rencontrer un personnage
     meetCharacters()
     } else {
     // Rencontrer un monstre
+    // meetMonsters()
     meetCharacters()
-    //meetMonsters()
     }
 
 }
-
 
 function GameOver() {
     clearImage();
