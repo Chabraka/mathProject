@@ -66,8 +66,26 @@ body {
     height: 78vh;
 }
 
+.event-container{
+    position: absolute;
+    bottom: 21%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+
+    color: black;
+    border-radius: 5px;
+}
+
+img[alt="characters"]{
+    width: 200px;
+}
+
+
+
 .dialogue {
     position: absolute;
+    height:18%;
     width: 50%;
     bottom: 10px;
     left: 50%;

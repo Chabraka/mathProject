@@ -63,6 +63,8 @@ function foundArmor() {
 
 // Fonction pour avancer dans la forêt
 function advanceInForest() {
+    clearImage();
+    
     const encounter = Math.random(); // Générer un nombre aléatoire entre 0 et 1
   
     if (encounter < 1 / 3) {

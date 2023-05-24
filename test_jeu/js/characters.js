@@ -6,32 +6,27 @@ function meetCharacters() {
 
 
     // Déterminer le personnage rencontré en fonction de la loi de Poisson
-    /*if (encounter < 0.4) {
+    if (encounter < 0.4) {
       character = 'Marchand'; // 40% de chance de rencontrer un marchand
     } else if (encounter < 0.7) {
       character = 'Joueur'; // 30% de chance de rencontrer un joueur
     } else if (encounter < 0.9) {
       character = 'Aventurier'; // 20% de chance de rencontrer un aventurier
     } else {
-      character = 'Soigneur'; // 10% de chance de rencontrer un soigneur
+      // 10% de chance de rencontrer un soigneur
       meetSoigneur(); 
-    }*/
-  
-    // Afficher le dialogue ou déclencher l'action correspondante au personnage rencontré
-    showMessage('Vous rencontrez un ' + character + '.');
-    meetSoigneur(); 
-    // Mettez ici le code spécifique pour interagir avec le personnage rencontré
+    }
 }
 
 function meetSoigneur() {
 
-    showMessage('Vous avez rencontré un soigneur.');
+    showMessage('Vous avez rencontré une soigneuse.');
     showOptions(['']);
 
     setTimeout(function() {
         showMessage('Aventurier, vous semblez épuisé.');
         showOptions(['']);
-
+        addImage("images/characters/soigneuse.png", "characters");
 
     setTimeout(function() {
 
@@ -71,8 +66,8 @@ function meetSoigneur() {
         });
       }
       
-    }, 1500);
+    }, 2000);
       
-    }, 1500);
+    }, 2000);
   }
   
