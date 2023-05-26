@@ -11,13 +11,16 @@ function meetCharacters() {
   const encounter = Math.random();
 
   if (encounter < 0.4) {
-    meetMarchand();  // Rencontre avec la joueuse
+    meetJoueur();  // Rencontre avec la joueuse
   } else if (encounter < 0.7) {
-    meetMarchand();  // Rencontre avec le marchand
+    meetJoueur();
+    //meetMarchand();  // Rencontre avec le marchand
   } else if (encounter < 0.9) {
-    meetAventurier(); // Rencontre avec l'aventurier
+    meetJoueur();
+    //meetAventurier(); // Rencontre avec l'aventurier
   } else {
-    meetSoigneur(); // Rencontre avec la soigneuse
+    meetJoueur();
+    //meetSoigneur(); // Rencontre avec la soigneuse
   }
 
   //Loi de poisson
@@ -219,3 +222,54 @@ async function meetMarchand() {
   } while (eventInProgress);
 }
   
+
+async function meetJoueur() {
+  showMessage('Vous avez rencontré un joueur.');
+  showOptions(['']);
+
+  await delay(2000);
+
+  showMessage('Salut ! Tu veux faire un pierre-feuille-ciseaux sur 3 manches ? On parie ?');
+  addImage("images/characters/joueuse.png", "characters");
+
+  showOptions(['Jouer (coût: 50$)', 'Ne pas jouer']);
+
+  const option = await waitForOption();
+
+  if (option === 'Jouer (coût: 50$)') {
+    if (money >= 50) {
+      showMessage('D\'accord, c\'est parti !');
+      money -= 50;
+
+      const nbRepetitions = 3;
+      const probaVictoire = 1 / 3; // Probabilité de victoire dans chaque répétition
+
+      const nbVictoires = binomiale(nbRepetitions, probaVictoire, Math.random());
+      let gain = 0;
+
+      if (nbVictoires === 3) {
+        showMessage('La chance t\as gagné toutes les manches ! Voici tes 100$.');
+        gain = 100;
+      } else if (nbVictoires === 2) {
+        showMessage('Pas mal ! 2 manches sur 3 ça mérite bien 50$.');
+        gain = 50;
+      } else if (nbVictoires === 1) {
+        showMessage('1 victoire. Tiens 10$, tu pourras t\acheter du chocolat.');
+        gain = 10;
+      } else {
+        showMessage('Héhé 0 victoire pour toi.');
+      }
+
+      money += gain;
+      updateStats();
+
+    } else {
+      showMessage('Vous n\'avez pas assez d\'argent pour jouer.');
+    }
+  } else {
+    showMessage('Vous décidez de ne pas jouer.');
+  }
+
+  showOptions(['Avancer', 'Rentrer chez soi']);
+  eventInProgress = false; 
+}
