@@ -27,7 +27,7 @@ function startGame() {
 
     // Options initiales
     lifePV = 150;
-    money = 100;
+    money = 1000;
     maxLifePV = 200;
     updateStats();
     changeBackground(background);

@@ -1,11 +1,11 @@
-let eventInProgress = false; // Variable pour suivre si un événement est en cours
+let eventInProgress2 = false; // Variable pour suivre si un événement est en cours
 
 function meetMonsters() {
-  if (eventInProgress) {
+  if (eventInProgress2) {
     return; // Si un événement est déjà en cours, ne pas déclencher une nouvelle rencontre
   }
 
-  eventInProgress = true; // Marquer qu'un événement est en cours
+  eventInProgress2 = true; // Marquer qu'un événement est en cours
 
   let monster = '';
   //const geoNumber = geometrique(0.7, Math.random());

@@ -224,7 +224,7 @@ async function meetMarchand() {
   
 
 async function meetJoueur() {
-  showMessage('Vous avez rencontré un joueur.');
+  showMessage('Vous avez rencontré une joueuse.');
   showOptions(['']);
 
   await delay(2000);
@@ -238,14 +238,16 @@ async function meetJoueur() {
 
   if (option === 'Jouer (coût: 50$)') {
     if (money >= 50) {
-      showMessage('D\'accord, c\'est parti !');
       money -= 50;
-
+      updateStats();
       const nbRepetitions = 3;
-      const probaVictoire = 1 / 3; // Probabilité de victoire dans chaque répétition
+      const probaVictoire = 1 / 3; 
 
       const nbVictoires = binomiale(nbRepetitions, probaVictoire, Math.random());
+
       let gain = 0;
+      console.log(nbVictoires)
+      await simulatePierreFeuilleCiseaux(nbVictoires);
 
       if (nbVictoires === 3) {
         showMessage('La chance t\as gagné toutes les manches ! Voici tes 100$.');
@@ -254,7 +256,7 @@ async function meetJoueur() {
         showMessage('Pas mal ! 2 manches sur 3 ça mérite bien 50$.');
         gain = 50;
       } else if (nbVictoires === 1) {
-        showMessage('1 victoire. Tiens 10$, tu pourras t\acheter du chocolat.');
+        showMessage('1 victoire. Tiens 10$, tu pourras t\'acheter du chocolat.');
         gain = 10;
       } else {
         showMessage('Héhé 0 victoire pour toi.');
