@@ -11,15 +11,17 @@ function meetCharacters() {
   const encounter = Math.random();
 
   if (encounter < 0.4) {
-    meetJoueur();  // Rencontre avec la joueuse
+    meetMarchand(); 
+    //meetJoueur();  // Rencontre avec la joueuse
   } else if (encounter < 0.7) {
-    meetJoueur();
-    //meetMarchand();  // Rencontre avec le marchand
+    meetMarchand();  // Rencontre avec le marchand
   } else if (encounter < 0.9) {
-    meetJoueur();
+    meetMarchand();
+    //meetJoueur();
     //meetAventurier(); // Rencontre avec l'aventurier
   } else {
-    meetJoueur();
+    meetMarchand();
+    //meetJoueur();
     //meetSoigneur(); // Rencontre avec la soigneuse
   }
 
@@ -159,9 +161,9 @@ async function meetMarchand() {
   showMessage('Bienvenue dans ma boutique ! Voici les équipements que j\'ai en vente :');
   addImage("images/characters/marchand.png", "characters");
 
-  const equipment1 = getRandomEquipment();
-  const equipment2 = getRandomEquipment();
-  const equipment3 = getRandomEquipment();
+  const equipment1 = getRandomEquipment('artefact');
+  const equipment2 = getRandomEquipment('bouclier');
+  const equipment3 = getRandomEquipment('épée');
   let option;
 
   let option1 = equipment1.name + " : " + equipment1.value + " $";
@@ -274,4 +276,35 @@ async function meetJoueur() {
 
   showOptions(['Avancer', 'Rentrer chez soi']);
   eventInProgress = false; 
+}
+
+
+function calculateMeetJoueurStats() {
+  const numSimulations = 10000;
+
+  let totalWins = 0;
+  let totalLosses = 0;
+  let totalSuccessCount = 0;
+
+  for (let i = 0; i < numSimulations; i++) {
+    const nbVictoires = binomiale(3, 1 / 3, Math.random());
+
+    totalWins += nbVictoires === 3 ? 1 : 0;
+    totalLosses += nbVictoires === 0 ? 1 : 0;
+    totalLosses += nbVictoires === 1 ? 1 : 0;
+    totalSuccessCount += nbVictoires;
+  }
+
+  const averageWinProbability = totalWins / numSimulations; // Probabilité moyenne de gagner
+  const averageLossProbability = totalLosses / numSimulations; // Probabilité moyenne de perdre de l'argent
+  const averageSuccessCount = totalSuccessCount / numSimulations; // Nombre moyen de succès
+  const variance = varianceBin(3, averageSuccessCount / 3); // Variance
+  const standardDeviation = ecartTypeBin(3, averageSuccessCount / 3); // Écart type
+
+  //Pour un jeu
+  const WinProbability = probaBin(3, 3, 1 / 3); // Probabilité moyenne de gagner
+  const LossProbability = probaBin(3, 0, 2 / 3) + probaBin(3, 1, 2 / 3);  // Probabilité moyenne de perdre de l'argent
+  const SuccessCount = esperanceBin(3, 1 / 3); // Nombre moyen de succès
+
+  //displayStatsOnPage(averageWinProbability, averageLossProbability, averageSuccessCount, variance, standardDeviation);
 }
