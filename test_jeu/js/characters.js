@@ -7,21 +7,18 @@ function meetCharacters() {
   eventInProgress = true; // Marquer qu'un événement est en cours
 
   //Loi de poisson
-  let poissonNumber = poisson(6, Math.random())
+  let poissonNumber = poisson(paramMeetCharacters, Math.random())
 
   if (poissonNumber == 6 ) {
-      //meetMarchand();  // Rencontre avec le marchand
-      meetJoueur();
+      meetMarchand();  // Rencontre avec le marchand
   } else if (poissonNumber == 5 ) {
       meetJoueur();  // Rencontre avec la joueuse
   } else if (poissonNumber == 7) {
-      //meetSoigneur(); // Rencontre avec la soigneuse
-      meetJoueur();
+      meetSoigneur(); // Rencontre avec la soigneuse
   } else {
-      //meetAventurier(); // Rencontre avec l'aventurier
-      meetJoueur();
+      meetAventurier(); // Rencontre avec l'aventurier
   }
-  rademacherNumber = rademacher(1/3, Math.random()); // Markov
+  rademacherNumber = rademacher(paramRadeForCharacters, Math.random()); // Markov
 }
 
 async function meetSoigneur() {

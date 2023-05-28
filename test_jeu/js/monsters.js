@@ -16,7 +16,7 @@ async function meetMonsters() {
     { name: 'Dragon', pv: 90, att: 100}
   ];
   
-  const geoNumber = geometrique(0.4, Math.random());
+  const geoNumber = geometrique(paramMeetMonsters, Math.random());
   let monster = monsters[Math.min(geoNumber, 6) - 1];
   
     showMessage('Vous rencontrez un ' + monster.name + '.');
@@ -94,6 +94,6 @@ async function meetMonsters() {
       showMessage('Vous vous retournez et reprenez votre chemin.');
       showOptions(['Avancer', 'Rentrer chez soi']);
     }
-    rademacherNumber = rademacher(1/2, Math.random());
+    rademacherNumber = rademacher(paramRadeForMonsters, Math.random());
     eventInProgress2 = false; 
 }

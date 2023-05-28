@@ -33,3 +33,10 @@ function updateStats() {
   document.querySelector('.money').textContent = money;
 }
 
+function updateParams() {
+    document.querySelector('.stronger-monsters').textContent = "Stronger monsters : " + paramMeetMonsters;
+    document.querySelector('.change-chars').textContent = "Change apparition of characters : " + paramMeetCharacters;
+    document.querySelector('.meet-chars').textContent = "More characters after another : " + paramRadeForCharacters;
+    document.querySelector('.meet-monsters').textContent = "More characters after a monster : " + paramRadeForMonsters;
+}
+

@@ -14,7 +14,10 @@ let background = 'images/background/room.gif';
 
 // PARAMS
 let rademacherNumber = rademacher(1/2, Math.random()); // Début chaine de Markov
-
+let paramMeetCharacters = 6 ;
+let paramMeetMonsters = 0.4 ;
+let paramRadeForCharacters = 1/3 ;
+let paramRadeForMonsters = 1/2 ;
 
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
@@ -33,6 +36,7 @@ function startGame() {
     money = 1000;
     maxLifePV = 200;
     updateStats();
+    updateParams();
     changeBackground(background);
     showMessage('Bienvenue dans Fantastic Adventure ! Choisissez votre prochaine action.');
     showOptions(['Rester chez soi', 'Sortir']);
