@@ -11,6 +11,9 @@ let equipmentAtt = "Stylo"
 
 let background = 'images/background/room.gif';
 
+// Début chaine de Markov
+let bernNumber = bernouilli(1/2, Math.random());
+
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
     const option = event.target.textContent;
@@ -23,8 +26,7 @@ document.querySelector('#dialogueOptions').addEventListener('click', function(ev
 
 
 // Fonction pour commencer le jeu
-function startGame() {
-
+function startGame() {    
     // Options initiales
     lifePV = 150;
     money = 1000;
@@ -54,7 +56,6 @@ function startGame() {
             goOutside();
         }
         else if (option === 'Avancer') {
-            let bernNumber = bernouilli(1/3, Math.random());
             advanceInForest(bernNumber);
         }
         else if (option === 'Rentrer chez soi') {

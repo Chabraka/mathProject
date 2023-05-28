@@ -14,10 +14,10 @@ async function meetMonsters() {
     { name: 'Troll', pv: 40, att: 30},
     { name: 'Griffon', pv: 50, att: 50},
     { name: 'Dragon', pv: 90, att: 100}
-];
+  ];
   
   const geoNumber = geometrique(0.4, Math.random());
-  let monster = monsters[geoNumber];
+  let monster = monsters[Math.min(geoNumber, 6) - 1];
   
     // Afficher le dialogue ou déclencher l'action correspondante au monstre rencontré
     showMessage('Vous rencontrez un ' + monster.name + '.');
@@ -84,5 +84,6 @@ async function meetMonsters() {
       showOptions(['Avancer', 'Rentrer chez soi']);
     }
 
+    bernNumber = bernouilli(1/2, Math.random());
     eventInProgress2 = false; 
 }

@@ -20,6 +20,8 @@ function meetCharacters() {
       meetAventurier(); // Rencontre avec l'aventurier
   }
 
+  bernNumber = bernouilli(1/3, Math.random()); // Markov
+
 }
 
 async function meetSoigneur() {
@@ -66,7 +68,7 @@ async function meetSoigneur() {
 
     showOptions(['Avancer', 'Rentrer chez soi']);
   }
-  
+
   eventInProgress = false; // Marquer que l'événement est terminé
 }
   
@@ -101,6 +103,7 @@ async function meetAventurier() {
   else if (action === 2) {
     const equipment = getRandomEquipment(category[random]);
     showMessage('L\'aventurier vous dit qu\'il porte trop de choses et vous donne un équipement aléatoire : ' + equipment.name);
+    showOptions(['']);
     await updateStatsWithEquipment(equipment);
     showOptions(['Avancer', 'Rentrer chez soi']);
   } 

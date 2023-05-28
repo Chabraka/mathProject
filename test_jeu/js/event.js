@@ -63,18 +63,7 @@ async function advanceInForest(bernNumber) {
     console.log(eventInProgress);
     await delay(1700);
 
-    /* Lois */
-    //let bernNumber = bernouilli(1/3, Math.random());
-
-    if (bernNumber == 1) {
-    // Rencontrer un personnage
-    meetCharacters()
-    } else {
-    // Rencontrer un monstre
-    meetMonsters()
-    // meetCharacters()
-    }
-
+    (bernNumber == 1) ? meetCharacters()  : meetMonsters() ;
 }
 
 function GameOver() {
