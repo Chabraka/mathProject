@@ -1,11 +1,11 @@
 
-async function simulatePierreFeuilleCiseaux(numPlayerWins) {
+async function simulatePierreFeuilleCiseaux(numPlayerWins, nbManches) {
     showMessage('D\'accord, c\'est parti !');
   
     let playerWins = 0;
     await delay(2000);
   
-    for (let i = 1; i <= 3; i++) {
+    for (let i = 1; i <= nbManches; i++) {
       showMessage('Manche ' + i + ': Faites votre choix.');
       showOptions(['Pierre', 'Feuille', 'Ciseaux']);
   

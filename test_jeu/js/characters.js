@@ -10,13 +10,16 @@ function meetCharacters() {
   let poissonNumber = poisson(6, Math.random())
 
   if (poissonNumber == 6 ) {
-      meetMarchand();  // Rencontre avec le marchand
+      //meetMarchand();  // Rencontre avec le marchand
+      meetJoueur();
   } else if (poissonNumber == 5 ) {
       meetJoueur();  // Rencontre avec la joueuse
   } else if (poissonNumber == 7) {
-      meetSoigneur(); // Rencontre avec la soigneuse
+      //meetSoigneur(); // Rencontre avec la soigneuse
+      meetJoueur();
   } else {
-      meetAventurier(); // Rencontre avec l'aventurier
+      //meetAventurier(); // Rencontre avec l'aventurier
+      meetJoueur();
   }
   rademacherNumber = rademacher(1/3, Math.random()); // Markov
 }
@@ -208,7 +211,7 @@ async function meetJoueur() {
 
   await delay(2000);
 
-  showMessage('Salut ! Tu veux faire un pierre-feuille-ciseaux sur 3 manches ? On parie ?');
+  showMessage('Salut ! Tu veux faire un pierre-feuille-ciseaux ? On parie ?');
   addImage("images/characters/joueuse.png", "characters");
 
   showOptions(['Jouer (coût: 50$)', 'Ne pas jouer']);
@@ -219,22 +222,27 @@ async function meetJoueur() {
     if (money >= 50) {
       money -= 50;
       updateStats();
-      const nbRepetitions = 3;
+
+      showMessage('Tu veux jouer en combien de manches ?');
+      showOptions([1, 2, 3, 4, 5, 6]);
+
+      const nbRepetitions = await waitForOption();
+
       const probaVictoire = 1 / 3; 
       const nbVictoires = binomiale(nbRepetitions, probaVictoire, Math.random());
 
       let gain = 0;
       console.log(nbVictoires)
-      await simulatePierreFeuilleCiseaux(nbVictoires);
+      await simulatePierreFeuilleCiseaux(nbVictoires, nbRepetitions);
 
-      if (nbVictoires === 3) {
-        showMessage('La chance t\as gagné toutes les manches ! Voici tes 100$.');
-        gain = 100;
-      } else if (nbVictoires === 2) {
-        showMessage('Pas mal ! 2 manches sur 3 ça mérite bien 50$.');
-        gain = 50;
-      } else if (nbVictoires === 1) {
-        showMessage('1 victoire. Tiens 10$, tu pourras t\'acheter du chocolat.');
+      if (nbVictoires === nbRepetitions) {
+        gain = 50 * nbVictoires ;
+        showMessage('La chance t\as gagné toutes les manches ! Voici tes '+ gain + ' $.');
+      } else if (nbVictoires < nbRepetitions && nbVictoires > 1 ) {
+        gain = 20 * nbVictoires;
+        showMessage('Pas mal ! Tu mérites bien ' + gain + '$.');
+      } else if (nbVictoires === 1 && nbVictoires != nbRepetitions) {
+        showMessage('Une victoire. Tiens 10$, tu pourras t\'acheter du chocolat.');
         gain = 10;
       } else {
         showMessage('Héhé 0 victoire pour toi.');
