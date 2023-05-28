@@ -55,7 +55,7 @@ function goOutside() {
 
 
 // Fonction pour avancer dans la forêt
-async function advanceInForest() {
+async function advanceInForest(bernNumber) {
     clearImage();
     showMessage("Vous décidez d'avancer.")
     showOptions(['']);
@@ -64,7 +64,7 @@ async function advanceInForest() {
     await delay(1700);
 
     /* Lois */
-    const bernNumber = bernouilli(1/3, Math.random());
+    //let bernNumber = bernouilli(1/3, Math.random());
 
     if (bernNumber == 1) {
     // Rencontrer un personnage

@@ -54,7 +54,8 @@ function startGame() {
             goOutside();
         }
         else if (option === 'Avancer') {
-            advanceInForest();
+            let bernNumber = bernouilli(1/3, Math.random());
+            advanceInForest(bernNumber);
         }
         else if (option === 'Rentrer chez soi') {
             goBackHome();

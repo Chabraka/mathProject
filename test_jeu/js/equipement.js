@@ -1,5 +1,4 @@
-async function updateStatsWithEquipment(equipment)
-   {
+async function updateStatsWithEquipment(equipment) {
 
     await delay(1500);
         if (equipment.category === 'artefact') {
@@ -32,20 +31,14 @@ async function updateStatsWithEquipment(equipment)
 
 }
 
-/*plus la valeur de l'equipement est haute moins elle a de chance d'apparaitre : geo inversée */
-
-function probaGeo(param, k) {
-  return Math.pow(1 - param, k - 1) * param;
-}
-
 function getRandomEquipment(category) {
   const artifacts = [
-      { name: 'bague', category: 'artefact', value: 10 },
-      { name: 'collier', category: 'artefact', value: 15 },
+      { name: 'chapeau', category: 'artefact', value: 7 },
       { name: 'bracelet', category: 'artefact', value: 8 },
+      { name: 'bague', category: 'artefact', value: 10 },
       { name: 'gant', category: 'artefact', value: 12 },
-      { name: 'écharpe', category: 'artefact', value: 20 },
-      { name: 'chapeau', category: 'artefact', value: 7 }
+      { name: 'collier', category: 'artefact', value: 15 },
+      { name: 'écharpe', category: 'artefact', value: 20 }
   ];
 
   const shields = [
@@ -58,15 +51,13 @@ function getRandomEquipment(category) {
 
   const swords = [
       { name: 'vieille épée', category: 'épée', value: 30 },
+      { name: 'massue', category: 'épée', value: 25 },
       { name: 'lance', category: 'épée', value: 45 },
       { name: 'épée de chevalier', category: 'épée', value: 80 },
-      { name: 'laser', category: 'épée', value: 150 },
-      { name: 'massue', category: 'épée', value: 25 }
+      { name: 'laser', category: 'épée', value: 150 }
   ];
 
   let categoryObjects;
-  let param;
-
   if (category === 'artefact') {
       categoryObjects = artifacts;
   } else if (category === 'bouclier') {
@@ -78,76 +69,16 @@ function getRandomEquipment(category) {
       return null;
   }
 
-  const maxValue = Math.max(...categoryObjects.map(obj => obj.value));
-  const totalValues = categoryObjects.reduce((acc, obj) => acc + obj.value, 0);
-  const categoryWeight = categoryObjects.length * maxValue;
-  param = 1 / (categoryWeight + totalValues);
-
+  let indexObj = 0;
+  let param = 1/2;
   console.log('Probabilités des objets :');
   for (const obj of categoryObjects) {
-      const probability = probaGeo(param, obj.value);
+      const probability = probaGeo(param, indexObj);
       console.log(`${obj.name} - Probabilité : ${probability}`);
+      indexObj ++;
   }
 
-  const rand = Math.random();
-  const geoIndex = geometrique(param, rand);
-  const index = Math.min(geoIndex, categoryObjects.length) - 1;
+  const geoIndex = geometrique(param, Math.random());
+  const index = Math.min(geoIndex, categoryObjects.length ) - 1;
   return categoryObjects[index];
 }
-
-/*function getRandomEquipment(category) {
-  let categoryObjects;
-  let param;
-
-  if (category === 'artefact') {
-      categoryObjects = [
-          { name: 'bague', category: 'artefact', value: 10 },
-          { name: 'collier', category: 'artefact', value: 15 },
-          { name: 'bracelet', category: 'artefact', value: 8 },
-          { name: 'gant', category: 'artefact', value: 12 },
-          { name: 'écharpe', category: 'artefact', value: 20 },
-          { name: 'chapeau', category: 'artefact', value: 7 }
-      ];
-  } else if (category === 'bouclier') {
-      categoryObjects = [
-          { name: 'tole', category: 'bouclier', value: 20 },
-          { name: 'bouclier ancien', category: 'bouclier', value: 30 },
-          { name: 'bouclier en bois', category: 'bouclier', value: 40 },
-          { name: 'armure', category: 'bouclier', value: 85 },
-          { name: 'armure en or', category: 'bouclier', value: 150 }
-      ];
-  } else if (category === 'épée') {
-      categoryObjects = [
-          { name: 'vieille épée', category: 'épée', value: 30 },
-          { name: 'lance', category: 'épée', value: 45 },
-          { name: 'épée de chevalier', category: 'épée', value: 80 },
-          { name: 'laser', category: 'épée', value: 150 },
-          { name: 'massue', category: 'épée', value: 25 }
-      ];
-  } else {
-      console.log('Catégorie invalide');
-      return null;
-  }
-  
-
-  const totalInverseValues = categoryObjects.reduce((acc, obj) => acc + (1 / obj.value), 0);
-  param = 1 / totalInverseValues;
-
-  console.log('Probabilités des objets :');
-  for (const obj of categoryObjects) {
-      const probability = (1 / obj.value) * param;
-      console.log(`${obj.name} - Probabilité : ${probability}`);
-  }
-
-  const rand = Math.random();
-  let cumulativeProbability = 0;
-  for (const obj of categoryObjects) {
-      const probability = (1 / obj.value) * param;
-      cumulativeProbability += probability;
-      if (rand <= cumulativeProbability) {
-          return obj;
-      }
-  }
-
-  return null;
-}*/
