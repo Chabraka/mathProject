@@ -5,20 +5,27 @@ function meetCharacters() {
     return; // Si un événement est déjà en cours, ne pas déclencher une nouvelle rencontre
   }
   eventInProgress = true; // Marquer qu'un événement est en cours
+  meetSomeone += 1;
+  meetHuman += 1;
 
   //Loi de poisson
   let poissonNumber = poisson(paramMeetCharacters, Math.random())
 
   if (poissonNumber == 6 ) {
+      meetMarch += 1;
       meetMarchand();  // Rencontre avec le marchand
   } else if (poissonNumber == 5 ) {
+      meetJou += 1;
       meetJoueur();  // Rencontre avec la joueuse
   } else if (poissonNumber == 7) {
+      meetSoign += 1;
       meetSoigneur(); // Rencontre avec la soigneuse
   } else {
+      meetAvent += 1;
       meetAventurier(); // Rencontre avec l'aventurier
   }
   rademacherNumber = rademacher(paramRadeForCharacters, Math.random()); // Markov
+  getStats();
 }
 
 async function meetSoigneur() {
