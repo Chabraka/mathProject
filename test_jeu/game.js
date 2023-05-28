@@ -88,6 +88,19 @@ function startGame() {
         // Mettez ici votre code pour afficher les statistiques du joueur
     });
 
+    // STATS
+    const statsBtn = document.getElementById('statsBtn');
+    const statsWindow = document.getElementById('statsWindow');
+    const closeBtn = document.getElementById('closeBtn');
+
+    statsBtn.addEventListener('click', () => {
+        statsWindow.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', () => {
+        statsWindow.style.display = 'none';
+    });
+
     // Écouteurs d'événements pour les options de dialogue
     document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
         const option = event.target.textContent;
