@@ -71,8 +71,8 @@ async function advanceInForest(bernNumber) {
     meetCharacters()
     } else {
     // Rencontrer un monstre
-    // meetMonsters()
-    meetCharacters()
+    meetMonsters()
+    // meetCharacters()
     }
 
 }

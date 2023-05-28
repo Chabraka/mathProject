@@ -66,7 +66,7 @@ async function meetSoigneur() {
 
     showOptions(['Avancer', 'Rentrer chez soi']);
   }
-
+  
   eventInProgress = false; // Marquer que l'événement est terminé
 }
   
