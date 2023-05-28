@@ -28,7 +28,6 @@ async function updateStatsWithEquipment(equipment) {
             }
             showMessage('Votre attaque est de ' + attaque);
         }
-
 }
 
 function getRandomEquipment(category) {

@@ -16,7 +16,7 @@ async function simulatePierreFeuilleCiseaux(numPlayerWins) {
   
       let opponentChoice;
   
-      if(playerWins<numPlayerWins){
+      if(playerWins < numPlayerWins){
         opponentChoice = getLosingChoice(playerChoice);
       }
       else{

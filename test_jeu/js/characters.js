@@ -7,37 +7,18 @@ function meetCharacters() {
 
   eventInProgress = true; // Marquer qu'un événement est en cours
 
-  
-  const encounter = Math.random();
-
-  if (encounter < 0.4) {
-    meetMarchand(); 
-    //meetJoueur();  // Rencontre avec la joueuse
-  } else if (encounter < 0.7) {
-    meetMarchand();  // Rencontre avec le marchand
-  } else if (encounter < 0.9) {
-    meetMarchand();
-    //meetJoueur();
-    //meetAventurier(); // Rencontre avec l'aventurier
-  } else {
-    meetMarchand();
-    //meetJoueur();
-    //meetSoigneur(); // Rencontre avec la soigneuse
-  }
 
   //Loi de poisson
-  // const poissonNumber = poisson(6, Math.random())
-
-  /*
-  if (poissonNumber == 6) {
-    meetMarchand();  // Rencontre avec la joueuse
+  let poissonNumber = poisson(6, Math.random())
+  if (poissonNumber == 6 ) {
+      meetMarchand();  // Rencontre avec le marchand
   } else if (poissonNumber == 5 ) {
-    meetMarchand();  // Rencontre avec le marchand
+      meetJoueur();  // Rencontre avec la joueuse
   } else if (poissonNumber == 7) {
-    meetAventurier(); // Rencontre avec l'aventurier
+      meetSoigneur(); // Rencontre avec la soigneuse
   } else {
-    meetSoigneur(); // Rencontre avec la soigneuse
-  } */
+      meetAventurier(); // Rencontre avec l'aventurier
+  }
 
 }
 
@@ -97,6 +78,8 @@ async function meetAventurier() {
   addImage("images/characters/aventurier.png", "characters");
 
   const action = Math.floor(Math.random() * 3) + 1;
+  let category = ['artefact', 'bouclier', 'épée'];
+  let random = Math.floor(Math.random() * 10) % 3;
 
   if (action === 1) {
     showMessage('L\'aventurier vous bouscule et vous perdez un demi point de vie.');
@@ -106,7 +89,7 @@ async function meetAventurier() {
     showOptions(['']);
     await delay(4000);
 
-    const equipment = getRandomEquipment();
+    const equipment = getRandomEquipment(category[random]);
     showMessage('En vous bousculant, l\'aventurier perd de l\'argent et un équipement : ' + equipment.name);
     money += 50;
     updateStats();
@@ -114,12 +97,14 @@ async function meetAventurier() {
 
     await updateStatsWithEquipment(equipment);
     showOptions(['Avancer', 'Rentrer chez soi']);
-  } else if (action === 2) {
-    const equipment = getRandomEquipment();
+  } 
+  else if (action === 2) {
+    const equipment = getRandomEquipment(category[random]);
     showMessage('L\'aventurier vous dit qu\'il porte trop de choses et vous donne un équipement aléatoire : ' + equipment.name);
     await updateStatsWithEquipment(equipment);
     showOptions(['Avancer', 'Rentrer chez soi']);
-  } else if (action === 3) {
+  } 
+  else if (action === 3) {
     showMessage('L\'aventurier vous propose un équipement aléatoire.');
     showOptions(['Accepter', 'Refuser']);
 
@@ -136,7 +121,7 @@ async function meetAventurier() {
         }
         updateStats();
       } else {
-        const equipment = getRandomEquipment();
+        const equipment = getRandomEquipment(category[random]);
         showMessage('Vous avez obtenu un nouvel équipement : ' + equipment.name);
         await delay(2000);
         await updateStatsWithEquipment(equipment);
