@@ -58,10 +58,12 @@ async function meetMonsters() {
   playerChoice = playerChoice.toLowerCase();
 
   if(playerChoice == 'attaquer') {
+    choixAttaque += 1;
     while(lifePV > 0 && monster.pv > 0) {
       let random = Math.floor(Math.random() * 10) % 5;
       switch(random) {
       case 0:
+        infligeDegats += 1;
         showMessage('Vous êtes rapide et lui donnez un coup bien placé !');
         monster.pv -= attaque*1.5;
         showOptions(['']);
@@ -69,6 +71,7 @@ async function meetMonsters() {
         break;
       
       case 1:
+        infligeDegats += 1;
         showMessage('Vous l\'attaquez par devant.');
         monster.pv -= attaque;
         showOptions(['']);
@@ -76,6 +79,7 @@ async function meetMonsters() {
         break;
 
       case 2:
+        pasDegats += 1;
         showMessage('Vous lui faites peur sans avoir à bouger le petit doigt.');
         monster.pv = 0;
         showOptions(['']);
@@ -83,6 +87,7 @@ async function meetMonsters() {
         break;
 
       case 3:
+        prendDegats +=1;
         showMessage('Il est plus rapide que vous et vous prenez une belle droite.');
         lifePV -= monster.att * 1.5;
         updateStats();
@@ -95,6 +100,7 @@ async function meetMonsters() {
         break;
 
       case 4:
+        prendDegats += 1;
         showMessage('Il vous attaque.');
         lifePV -= monster.att;
         updateStats();
@@ -109,6 +115,7 @@ async function meetMonsters() {
     }
   } 
   else {
+    choixFuite += 1;
     let fuir = bernouilli(2/3, Math.random());
 
     if(fuir == 0) {
@@ -119,6 +126,9 @@ async function meetMonsters() {
       await delay(2000);
 
       showMessage('Vous vous enfuyez enfin.');
+      await delay(2000);
+    } else { 
+      fuiteSafe += 1;
     }
     showMessage('Vous vous retournez et reprenez votre chemin.');
     showOptions(['Avancer', 'Rentrer chez soi']);

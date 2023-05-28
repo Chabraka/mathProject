@@ -15,15 +15,6 @@ function moyBern(param, rand, nb_iter) {
      return moy/nb_iter;
 };
 
-function afficheResultat(entier) {
-    if(entier == 1) {
-        console.log("Pile !");
-    }
-    else {
-        console.log("Face !");
-    }
-};
-
 function esperanceBern(param) {
     return param;
 };

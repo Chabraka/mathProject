@@ -63,6 +63,15 @@ function getStats() {
     console.log("Variance loi Poisson de paramètre " + paramMeetCharacters + " : " + variancePoisson(paramMeetCharacters))
     console.log("Ecart-type loi Poisson de paramètre " + paramMeetCharacters + " : " + ecartTypePoisson(paramMeetCharacters))
 
+        // Soins
+    console.log("Pourcentage soins gratuits : " + soigneGratuitement / meetSoign * 100 + "%")
+    console.log("Valeur théorique : " + 2/7 * 100 + "%")
+        // Loi Rademecher
+    console.log("Espérance loi Rademecher de paramètre 2/7 : " + esperanceRade(2/7))
+    console.log("Variance loi Rademecher de paramètre 2/7 : " + varianceRade(2/7))
+    console.log("Ecart-type loi Rademecher de paramètre 2/7 : " + ecartTypeRade(2/7))
+            
+
     /* --- MONSTRES --- */
     // Rencontre monstres
     console.log("Pourcentage monstres rencontrés : " + meetMonster / meetSomeone * 100 + "%")
@@ -89,6 +98,28 @@ function getStats() {
     console.log("Espérance loi géométrique de paramètre " + paramMeetMonsters + " : " + esperanceGeo(paramMeetMonsters))
     console.log("Variance loi géométrique de paramètre " + paramMeetMonsters + " : " + varianceGeo(paramMeetMonsters))
     console.log("Ecart-type loi géométrique de paramètre " + paramMeetMonsters + " : " + ecartTypeGeo(paramMeetMonsters))
+
+        // Fuite
+    console.log("Pourcentage fuite : " + choixFuite / meetMonster * 100 + "%")
+    console.log("Pourcentage fuite sans dégâts : " + fuiteSafe / choixFuite * 100 + "%")
+    console.log("Valeur théorique : " + 2/3 * 100 + "%")
+        // Loi Bernouilli
+    console.log("Espérance loi Bernouilli de paramètre 2/3 : " + esperanceBern(2/3))
+    console.log("Variance loi Bernouilli de paramètre 2/3 : " + varianceBern(2/3))
+    console.log("Ecart-type loi Bernouilli de paramètre 2/3 : " + ecartTypeBern(2/3))
+
+        // Attaque
+    console.log("Pourcentage attaque : " + choixAttaque / meetMonster * 100 + "%")
+    console.log("Pourcentage de dégâts infligés : " + infligeDegats / (infligeDegats + prendDegats + pasDegats) * 100 + "%")
+    console.log("Valeur théorique : " + 2/5 * 100 + "%")
+    console.log("Pourcentage de dégâts reçus : " + prendDegats / (infligeDegats + prendDegats + pasDegats) * 100 + "%")
+    console.log("Valeur théorique : " + 2/5 * 100 + "%")
+    console.log("Pourcentage d'action sans dégâts : " + pasDegats / (infligeDegats + prendDegats + pasDegats) * 100 + "%")
+    console.log("Valeur théorique : " + 1/5 * 100 + "%")
+        // Loi Uniforme
+    console.log("Espérance loi uniforme de paramètre 5 : " + esperanceUniforme(5))
+    console.log("Variance loi uniforme de paramètre 5 : " + varianceUniforme(5))
+    console.log("Ecart-type loi uniforme de paramètre 5 : " + ecartTypeUniforme(5))
 }
 
 

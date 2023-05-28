@@ -35,6 +35,15 @@ let meetTroll = 0;
 let meetGriffon = 0;
 let meetDragon = 0;
 
+let soigneGratuitement = 0;
+let choixAttaque = 0;
+let infligeDegats = 0;
+let prendDegats = 0;
+let pasDegats = 0;
+let choixFuite = 0;
+let fuiteSafe = 0;
+
+
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
     const option = event.target.textContent;

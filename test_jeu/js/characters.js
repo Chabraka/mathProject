@@ -39,9 +39,10 @@ async function meetSoigneur() {
   await delay(3000);
 
   // const chanceSoignerGratuitement = Math.random() < 0.5;
-  const chanceSoignerGratuitement = rademacher(2/5, Math.random());
+  const chanceSoignerGratuitement = rademacher(2/7, Math.random());
   console.log('avant :'+ maxLifePV);
   if (chanceSoignerGratuitement == 1) {
+    soigneGratuitement += 1;
     showMessage('Tenez, voici une potion de santé pour vous.');
     lifePV = maxLifePV;
     console.log('ap1 :'+ maxLifePV);
