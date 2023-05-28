@@ -13,19 +13,22 @@ function meetCharacters() {
 
   if (poissonNumber == 6 ) {
       meetMarch += 1;
+      getStats();
       meetMarchand();  // Rencontre avec le marchand
   } else if (poissonNumber == 5 ) {
       meetJou += 1;
+      getStats();
       meetJoueur();  // Rencontre avec la joueuse
   } else if (poissonNumber == 7) {
       meetSoign += 1;
+      getStats();
       meetSoigneur(); // Rencontre avec la soigneuse
   } else {
       meetAvent += 1;
+      getStats();
       meetAventurier(); // Rencontre avec l'aventurier
   }
   rademacherNumber = rademacher(paramRadeForCharacters, Math.random()); // Markov
-  getStats();
 }
 
 async function meetSoigneur() {
@@ -224,6 +227,7 @@ async function meetJoueur() {
   if (option === 'Jouer (coût: 50$)') {
     if (money >= 50) {
       nbGames += 1;
+      getStats();
       money -= 50;
       updateStats();
 
@@ -234,6 +238,7 @@ async function meetJoueur() {
 
       nbSets += nbRepetitions;
       choixSets[nbRepetitions - 1] += 1;
+      getStats();
       const nbVictoires = binomiale(nbRepetitions, 1 / 3, Math.random());
 
       let gain = 0;
@@ -255,6 +260,7 @@ async function meetJoueur() {
 
       if(gain >= 50) { 
         nbGamesWon += 1;
+        getStats();
       }
       money += gain;
       updateStats();

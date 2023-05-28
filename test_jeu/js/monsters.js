@@ -25,26 +25,32 @@ async function meetMonsters() {
     case 0 :
       monster = monsters[monsterNb];
       meetSlime += 1;
+      getStats();
       break;
     case 1 :
       monster = monsters[monsterNb];
       meetGobelin += 1;
+      getStats();
       break;
     case 2 :
       monster = monsters[monsterNb];
       meetOrc += 1;
+      getStats();
       break;
     case 3 :
       monster = monsters[monsterNb];
       meetTroll += 1;
+      getStats();
       break;
     case 4 :
       monster = monsters[monsterNb];
       meetGriffon += 1;
+      getStats();
       break;
     case 5 :
       monster = monsters[monsterNb];
       meetDragon += 1;
+      getStats();
       break;
   }
 
@@ -64,6 +70,7 @@ async function meetMonsters() {
       switch(random) {
       case 0:
         infligeDegats += 1;
+        getStats();
         showMessage('Vous êtes rapide et lui donnez un coup bien placé !');
         monster.pv -= attaque*1.5;
         showOptions(['']);
@@ -72,6 +79,7 @@ async function meetMonsters() {
       
       case 1:
         infligeDegats += 1;
+        getStats();
         showMessage('Vous l\'attaquez par devant.');
         monster.pv -= attaque;
         showOptions(['']);
@@ -80,6 +88,7 @@ async function meetMonsters() {
 
       case 2:
         pasDegats += 1;
+        getStats();
         showMessage('Vous lui faites peur sans avoir à bouger le petit doigt.');
         monster.pv = 0;
         showOptions(['']);
@@ -88,6 +97,7 @@ async function meetMonsters() {
 
       case 3:
         prendDegats +=1;
+        getStats();
         showMessage('Il est plus rapide que vous et vous prenez une belle droite.');
         lifePV -= monster.att * 1.5;
         updateStats();
@@ -101,6 +111,7 @@ async function meetMonsters() {
 
       case 4:
         prendDegats += 1;
+        getStats();
         showMessage('Il vous attaque.');
         lifePV -= monster.att;
         updateStats();
@@ -116,6 +127,7 @@ async function meetMonsters() {
   } 
   else {
     choixFuite += 1;
+    getStats();
     let fuir = bernouilli(2/3, Math.random());
 
     if(fuir == 0) {
@@ -129,6 +141,7 @@ async function meetMonsters() {
       await delay(2000);
     } else { 
       fuiteSafe += 1;
+      getStats();
     }
     showMessage('Vous vous retournez et reprenez votre chemin.');
     showOptions(['Avancer', 'Rentrer chez soi']);

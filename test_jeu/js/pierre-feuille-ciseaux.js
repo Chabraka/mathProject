@@ -31,6 +31,7 @@ async function simulatePierreFeuilleCiseaux(numPlayerWins, nbManches) {
       ) {
         showMessage('Vous avez gagné la manche !');
         nbSetsWon += 1;
+        getStats();
         playerWins++;
       } else if (
         (opponentChoice === 'pierre' && playerChoice === 'ciseaux') ||
@@ -40,6 +41,7 @@ async function simulatePierreFeuilleCiseaux(numPlayerWins, nbManches) {
         showMessage('L\'adversaire a gagné la manche !');
       } else {
         nbSetsNull += 1;
+        getStats();
         showMessage('La manche est nulle.');
       }
       await delay(2000);
