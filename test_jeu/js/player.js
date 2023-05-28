@@ -120,6 +120,19 @@ function getStats() {
     console.log("Espérance loi uniforme de paramètre 5 : " + esperanceUniforme(5))
     console.log("Variance loi uniforme de paramètre 5 : " + varianceUniforme(5))
     console.log("Ecart-type loi uniforme de paramètre 5 : " + ecartTypeUniforme(5))
+
+    /* --- Pierre-Feuille-Ciseaux --- */
+    console.log("Pourcentage de parties gagnées : " + nbGamesWon / nbGames * 100 + "%")
+    console.log("Valeur théorique : " + (choixSets[0][1] * esperanceBin(1, 1/3) + choixSets[0][2] * esperanceBin(2, 1/3)  + choixSets[0][3] * esperanceBin(3, 1/3) + choixSets[0][4] * esperanceBin(4, 1/3) + choixSets[0][5] * esperanceBin(5, 1/3) + choixSets[0][6] * esperanceBin(6, 1/3)) / nbGames * 100 + "%")
+    console.log("Variance (binomiale pondérée selon le nombre de manches souhaité) : " + (choixSets[0][1] * varianceBin(1, 1/3) + choixSets[0][2] * varianceBin(2, 1/3)  + choixSets[0][3] * varianceBin(3, 1/3) + choixSets[0][4] * varianceBin(4, 1/3) + choixSets[0][5] * varianceBin(5, 1/3) + choixSets[0][6] * varianceBin(6, 1/3)) / nbGames)
+    console.log("Ecart-type (binomiale pondérée selon le nombre de manches souhaité) : " + Math.sqrt((choixSets[0][1] * varianceBin(1, 1/3) + choixSets[0][2] * varianceBin(2, 1/3)  + choixSets[0][3] * varianceBin(3, 1/3) + choixSets[0][4] * varianceBin(4, 1/3) + choixSets[0][5] * varianceBin(5, 1/3) + choixSets[0][6] * varianceBin(6, 1/3)) / nbGames))
+
+    console.log("Pourcentage de manches gagnées : " + nbSetsWon / nbSets * 100 + "%")
+    console.log("Valeur théorique : " + 1/3 * 100 + "%")
+    console.log("Pourcentage de manches nulles : " + nbSetsNull / nbSets * 100 + "%")
+    console.log("Valeur théorique : " + 1/3 * 100 + "%")
+    console.log("Pourcentage de manches perdues : " + (nbSets - nbSetsNull - nbSetsWon) / nbSets * 100 + "%")
+    console.log("Valeur théorique : " + 1/3 * 100 + "%")
 }
 
 

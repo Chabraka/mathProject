@@ -1,10 +1,10 @@
 // Functions
 function uniforme(n) {
-    return 1/(n+1);
+    return 1/(n);
 };
 
 function moyUniforme(n) {
-    return 1/(n+1);
+    return 1/(n);
 };
 
 function esperanceUniforme(n) {

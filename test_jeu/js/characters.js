@@ -138,7 +138,6 @@ async function meetAventurier() {
   eventInProgress = false; // Marquer que l'événement est terminé
 }
   
-
 async function meetMarchand() {
   showMessage('Vous avez rencontré un marchand.');
   showOptions(['']);
@@ -209,7 +208,6 @@ async function meetMarchand() {
   } while (eventInProgress);
 }
   
-
 async function meetJoueur() {
   showMessage('Vous avez rencontré une joueuse.');
   showOptions(['']);
@@ -225,6 +223,7 @@ async function meetJoueur() {
 
   if (option === 'Jouer (coût: 50$)') {
     if (money >= 50) {
+      nbGames += 1;
       money -= 50;
       updateStats();
 
@@ -233,8 +232,9 @@ async function meetJoueur() {
 
       const nbRepetitions = await waitForOption();
 
-      const probaVictoire = 1 / 3; 
-      const nbVictoires = binomiale(nbRepetitions, probaVictoire, Math.random());
+      nbSets += nbRepetitions;
+      choixSets[nbRepetitions - 1] += 1;
+      const nbVictoires = binomiale(nbRepetitions, 1 / 3, Math.random());
 
       let gain = 0;
       console.log(nbVictoires)
@@ -252,6 +252,10 @@ async function meetJoueur() {
       } else {
         showMessage('Héhé 0 victoire pour toi.');
       }
+
+      if(gain >= 50) { 
+        nbGamesWon += 1;
+      }
       money += gain;
       updateStats();
 
@@ -265,7 +269,7 @@ async function meetJoueur() {
   eventInProgress = false; 
 }
 
-
+/*
 function calculateMeetJoueurStats() {
   const numSimulations = 10000;
 
@@ -294,4 +298,4 @@ function calculateMeetJoueurStats() {
   const SuccessCount = esperanceBin(3, 1 / 3); // Nombre moyen de succès
 
   //displayStatsOnPage(averageWinProbability, averageLossProbability, averageSuccessCount, variance, standardDeviation);
-}
+} */
