@@ -84,6 +84,6 @@ async function meetMonsters() {
       showOptions(['Avancer', 'Rentrer chez soi']);
     }
 
-    bernNumber = bernouilli(1/2, Math.random());
+    rademacherNumber = rademacher(1/2, Math.random());
     eventInProgress2 = false; 
 }

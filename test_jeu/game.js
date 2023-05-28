@@ -12,7 +12,7 @@ let equipmentAtt = "Stylo"
 let background = 'images/background/room.gif';
 
 // Début chaine de Markov
-let bernNumber = bernouilli(1/2, Math.random());
+let rademacherNumber = rademacher(1/2, Math.random());
 
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
@@ -56,7 +56,7 @@ function startGame() {
             goOutside();
         }
         else if (option === 'Avancer') {
-            advanceInForest(bernNumber);
+            advanceInForest(rademacherNumber);
         }
         else if (option === 'Rentrer chez soi') {
             goBackHome();

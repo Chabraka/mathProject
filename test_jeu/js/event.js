@@ -55,7 +55,7 @@ function goOutside() {
 
 
 // Fonction pour avancer dans la forêt
-async function advanceInForest(bernNumber) {
+async function advanceInForest(rademacherNumber) {
     clearImage();
     showMessage("Vous décidez d'avancer.")
     showOptions(['']);
@@ -63,7 +63,7 @@ async function advanceInForest(bernNumber) {
     console.log(eventInProgress);
     await delay(1700);
 
-    (bernNumber == 1) ? meetCharacters()  : meetMonsters() ;
+    (rademacherNumber == 1) ? meetCharacters()  : meetMonsters() ;
 }
 
 function GameOver() {

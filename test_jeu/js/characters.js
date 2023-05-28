@@ -20,7 +20,7 @@ function meetCharacters() {
       meetAventurier(); // Rencontre avec l'aventurier
   }
 
-  bernNumber = bernouilli(1/3, Math.random()); // Markov
+  rademacherNumber = rademacher(1/3, Math.random()); // Markov
 
 }
 
