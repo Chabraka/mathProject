@@ -13,7 +13,6 @@ function goBackHome() {
     const heartsLost = Math.floor(Math.random() * (maxLostPv + 1)); // Perdre un nombre aléatoire de points de vie entre 0 et maxLostPv
     
     lifePV -= heartsLost;
-    
     if (lifePV <= 0) {
         // Game over
         GameOver();
@@ -23,7 +22,6 @@ function goBackHome() {
         changeBackground('images/background/room.gif');
         
         let message = 'Vous êtes rentré chez vous';
-        
         if (heartsLost === 0) {
             message += ' sain et sauf.';
         } else if (heartsLost <= maxLifePV*0.10) {
@@ -60,7 +58,6 @@ async function advanceInForest(rademacherNumber) {
     showMessage("Vous décidez d'avancer.")
     showOptions(['']);
 
-    console.log(eventInProgress);
     await delay(1700);
 
     (rademacherNumber == 1) ? meetCharacters()  : meetMonsters() ;

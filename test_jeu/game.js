@@ -1,4 +1,4 @@
-
+// Player 
 let lifePV = 150;
 let money = 100;
 let maxLifePV = 200;
@@ -9,10 +9,12 @@ let equipmentDef = "T-shirt"
 let attaque = 0;
 let equipmentAtt = "Stylo"
 
+// Image
 let background = 'images/background/room.gif';
 
-// Début chaine de Markov
-let rademacherNumber = rademacher(1/2, Math.random());
+// PARAMS
+let rademacherNumber = rademacher(1/2, Math.random()); // Début chaine de Markov
+
 
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
@@ -23,7 +25,6 @@ document.querySelector('#dialogueOptions').addEventListener('click', function(ev
         advanceInForest();
     }
 });
-
 
 // Fonction pour commencer le jeu
 function startGame() {    
@@ -64,12 +65,8 @@ function startGame() {
         else if (option === 'Réessayer') {
             startGame();
         }
-        
     });
-
-    
 }
-
 
 // Démarrer le jeu
 startGame();

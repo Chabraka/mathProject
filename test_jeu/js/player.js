@@ -29,7 +29,6 @@ function updateStats() {
           heartsHTML += '<i class="far fa-heart fa-xl"></i>';
       }
   }
-
   document.querySelector('.lifePV').innerHTML = heartsHTML;
   document.querySelector('.money').textContent = money;
 }

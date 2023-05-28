@@ -3,7 +3,6 @@ async function simulatePierreFeuilleCiseaux(numPlayerWins) {
     showMessage('D\'accord, c\'est parti !');
   
     let playerWins = 0;
-  
     await delay(2000);
   
     for (let i = 1; i <= 3; i++) {
@@ -18,8 +17,7 @@ async function simulatePierreFeuilleCiseaux(numPlayerWins) {
   
       if(playerWins < numPlayerWins){
         opponentChoice = getLosingChoice(playerChoice);
-      }
-      else{
+      } else {
         opponentChoice = getWinningChoice(playerChoice);
       }
   

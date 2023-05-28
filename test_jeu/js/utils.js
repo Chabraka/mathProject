@@ -29,7 +29,6 @@ function clearImage() {
       imageContainer.removeChild(existingImage);
     }
   }
-  
 
 // Fonction pour afficher un message de dialogue
 function showMessage(message) {
@@ -52,12 +51,12 @@ function delay(ms) {
 }
 
 function waitForOption() {
-return new Promise(resolve => {
-    document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
-    const option = event.target.textContent;
-    resolve(option);
+    return new Promise(resolve => {
+        document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
+        const option = event.target.textContent;
+        resolve(option);
+        });
     });
-});
 }
 
 

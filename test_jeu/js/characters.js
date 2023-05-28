@@ -4,12 +4,11 @@ function meetCharacters() {
   if (eventInProgress) {
     return; // Si un événement est déjà en cours, ne pas déclencher une nouvelle rencontre
   }
-
   eventInProgress = true; // Marquer qu'un événement est en cours
-
 
   //Loi de poisson
   let poissonNumber = poisson(6, Math.random())
+
   if (poissonNumber == 6 ) {
       meetMarchand();  // Rencontre avec le marchand
   } else if (poissonNumber == 5 ) {
@@ -19,21 +18,17 @@ function meetCharacters() {
   } else {
       meetAventurier(); // Rencontre avec l'aventurier
   }
-
   rademacherNumber = rademacher(1/3, Math.random()); // Markov
-
 }
 
 async function meetSoigneur() {
   showMessage('Vous avez rencontré une soigneuse.');
   showOptions(['']);
-
   await delay(2000);
 
   showMessage('Aventurier, vous semblez épuisé.');
   showOptions(['']);
   addImage("images/characters/soigneuse.png", "characters");
-
   await delay(3000);
 
   const chanceSoignerGratuitement = Math.random() < 0.5;
@@ -53,7 +48,6 @@ async function meetSoigneur() {
     if (option === 'Ne pas se soigner') {
       showMessage('Vous ne voulez pas être soigné. Vous décidez de partir.');
     } 
-    
     else if (option === 'Payer 30 dollars pour les soins') {
       if (money >= 30) {
         showMessage('Vous avez payé 30 dollars et êtes maintenant soigné.');
@@ -65,10 +59,8 @@ async function meetSoigneur() {
         showMessage('Malheureusement, vous n\'avez pas assez d\'argent pour payer les soins.');
       }
     }
-
     showOptions(['Avancer', 'Rentrer chez soi']);
   }
-
   eventInProgress = false; // Marquer que l'événement est terminé
 }
   
@@ -80,8 +72,8 @@ async function meetAventurier() {
   addImage("images/characters/aventurier.png", "characters");
 
   const action = Math.floor(Math.random() * 3) + 1;
-  let category = ['artefact', 'bouclier', 'épée'];
-  let random = Math.floor(Math.random() * 10) % 3;
+  let category = ['artefact', 'bouclier', 'épée']; // Ensemble de valeurs possibles pour la variable aléatoire non numérique
+  let random = Math.floor(Math.random() * 10) % 3; // Paramètre pour la variable aléatoire non numérique
 
   if (action === 1) {
     showMessage('L\'aventurier vous bouscule et vous perdez un demi point de vie.');
@@ -91,7 +83,7 @@ async function meetAventurier() {
     showOptions(['']);
     await delay(4000);
 
-    const equipment = getRandomEquipment(category[random]);
+    const equipment = getRandomEquipment(category[random]); // Variable aléatoire non numérique
     showMessage('En vous bousculant, l\'aventurier perd de l\'argent et un équipement : ' + equipment.name);
     money += 50;
     updateStats();
@@ -101,7 +93,7 @@ async function meetAventurier() {
     showOptions(['Avancer', 'Rentrer chez soi']);
   } 
   else if (action === 2) {
-    const equipment = getRandomEquipment(category[random]);
+    const equipment = getRandomEquipment(category[random]); // Variable aléatoire non numérique
     showMessage('L\'aventurier vous dit qu\'il porte trop de choses et vous donne un équipement aléatoire : ' + equipment.name);
     showOptions(['']);
     await updateStatsWithEquipment(equipment);
@@ -124,7 +116,7 @@ async function meetAventurier() {
         }
         updateStats();
       } else {
-        const equipment = getRandomEquipment(category[random]);
+        const equipment = getRandomEquipment(category[random]); // Variable aléatoire non numérique
         showMessage('Vous avez obtenu un nouvel équipement : ' + equipment.name);
         await delay(2000);
         await updateStatsWithEquipment(equipment);
@@ -132,10 +124,8 @@ async function meetAventurier() {
     } else if (option === 'Refuser') {
       showMessage('Vous refusez l\'offre de l\'aventurier.');
     }
-
     showOptions(['Avancer', 'Rentrer chez soi']);
   }
-
   eventInProgress = false; // Marquer que l'événement est terminé
 }
   
@@ -152,14 +142,13 @@ async function meetMarchand() {
   const equipment1 = getRandomEquipment('artefact');
   const equipment2 = getRandomEquipment('bouclier');
   const equipment3 = getRandomEquipment('épée');
-  let option;
 
+  let option;
   let option1 = equipment1.name + " : " + equipment1.value + " $";
   let option2 = equipment2.name + " : " + equipment2.value + " $";
   let option3 = equipment3.name + " : " + equipment3.value + " $";
 
   do {
-
     showOptions([option1, option2, option3, 'Ne rien acheter']);
 
     option = await waitForOption();
@@ -208,7 +197,6 @@ async function meetMarchand() {
       showOptions(['Avancer', 'Rentrer chez soi']);
       eventInProgress = false;
     }
-
   } while (eventInProgress);
 }
   
@@ -232,7 +220,6 @@ async function meetJoueur() {
       updateStats();
       const nbRepetitions = 3;
       const probaVictoire = 1 / 3; 
-
       const nbVictoires = binomiale(nbRepetitions, probaVictoire, Math.random());
 
       let gain = 0;
@@ -251,7 +238,6 @@ async function meetJoueur() {
       } else {
         showMessage('Héhé 0 victoire pour toi.');
       }
-
       money += gain;
       updateStats();
 
@@ -261,7 +247,6 @@ async function meetJoueur() {
   } else {
     showMessage('Vous décidez de ne pas jouer.');
   }
-
   showOptions(['Avancer', 'Rentrer chez soi']);
   eventInProgress = false; 
 }

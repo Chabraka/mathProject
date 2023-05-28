@@ -19,11 +19,9 @@ async function meetMonsters() {
   const geoNumber = geometrique(0.4, Math.random());
   let monster = monsters[Math.min(geoNumber, 6) - 1];
   
-    // Afficher le dialogue ou déclencher l'action correspondante au monstre rencontré
     showMessage('Vous rencontrez un ' + monster.name + '.');
     await delay(2000);
 
-    // Mettez ici le code spécifique pour interagir avec le monstre rencontré
     showMessage('Que voulez-vous faire ?');
     showOptions(['Attaquer', 'Fuir']);
 
@@ -75,15 +73,27 @@ async function meetMonsters() {
           await delay(2000);
           break;
         }
-      } if (lifePV > 0) {
+      } 
+      if (lifePV > 0) {
           showMessage('Vous pouvez désormais continuer votre route.');
           showOptions(['Avancer', 'Rentrer chez soi']);
       }
-    } else {
+    } 
+    else {
+      let fuir = bernouilli(2/3, Math.random());
+
+      if(fuir == 0) {
+        showMessage('Vous vous faites attaquer avant même d\'avoir pu bouger.');
+        lifePV -= monster.att;
+        updateStats();
+        showOptions(['']);
+        await delay(2000);
+
+        showMessage('Vous vous enfuyez enfin.');
+      }
       showMessage('Vous vous retournez et reprenez votre chemin.');
       showOptions(['Avancer', 'Rentrer chez soi']);
     }
-
     rademacherNumber = rademacher(1/2, Math.random());
     eventInProgress2 = false; 
 }
