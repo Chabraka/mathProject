@@ -337,15 +337,6 @@ function getStats() {
     let p52 = document.createElement('p');
     p52.textContent = "Pourcentage de parties gagnées : " + nbGamesWon / nbGames * 100 + "%";
         statsContent.appendChild(p52);
-    let p53 = document.createElement('p');
-    p53.textContent = "Valeur théorique : " + (choixSets[0][1] * esperanceBin(1, 1/3) + choixSets[1][2] * esperanceBin(2, 1/3)  + choixSets[2][3] * esperanceBin(3, 1/3) + choixSets[3][4] * esperanceBin(4, 1/3) + choixSets[4][5] * esperanceBin(5, 1/3) + choixSets[5][6] * esperanceBin(6, 1/3)) / nbGames * 100 + "%";
-        statsContent.appendChild(p53);
-    let p54 = document.createElement('p');
-    p54.textContent = "Variance (binomiale pondérée selon le nombre de manches souhaité) : " + (choixSets[0][1] * varianceBin(1, 1/3) + choixSets[1][2] * varianceBin(2, 1/3)  + choixSets[2][3] * varianceBin(3, 1/3) + choixSets[3][4] * varianceBin(4, 1/3) + choixSets[4][5] * varianceBin(5, 1/3) + choixSets[5][6] * varianceBin(6, 1/3)) / nbGames;
-        statsContent.appendChild(p54);
-    let p55 = document.createElement('p');
-    p55.textContent = "Ecart-type (binomiale pondérée selon le nombre de manches souhaité) : " + Math.sqrt((choixSets[0][1] * varianceBin(1, 1/3) + choixSets[1][2] * varianceBin(2, 1/3)  + choixSets[2][3] * varianceBin(3, 1/3) + choixSets[3][4] * varianceBin(4, 1/3) + choixSets[4][5] * varianceBin(5, 1/3) + choixSets[5][6] * varianceBin(6, 1/3)) / nbGames);
-        statsContent.appendChild(p55);
 
     let h3_20 = document.createElement('h3');
     h3_20.textContent = "Statistiques sur les manches";
