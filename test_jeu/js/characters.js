@@ -84,7 +84,7 @@ async function meetAventurier() {
   addImage("images/characters/aventurier.png", "characters");
 
   const actionUnif = uniforme(3, Math.random());
-  console.log(actionUnif)
+  console.log(actionUnif);
   let category = ['artefact', 'bouclier', 'épée']; // Ensemble de valeurs possibles pour la variable aléatoire non numérique
   let random = Math.floor(Math.random() * 10) % 3; // Paramètre pour la variable aléatoire non numérique
 
@@ -228,6 +228,7 @@ async function meetJoueur() {
   if (option === 'Jouer (coût: 50$)') {
     if (money >= 50) {
       nbGames += 1;
+      console.log("nbGames" + nbGames);
       getStats();
       money -= 50;
       updateStats();
@@ -238,7 +239,8 @@ async function meetJoueur() {
       const nbRepetitions = await waitForOption();
 
       nbSets += nbRepetitions;
-      choixSets[nbRepetitions - 1] += 1;
+      choixSets[nbRepetitions - 1][nbRepetitions] += 1;
+      console.log(choixSets);
       getStats();
       const nbVictoires = binomiale(nbRepetitions, 1 / 3, Math.random());
 
@@ -261,6 +263,7 @@ async function meetJoueur() {
 
       if(gain >= 50) { 
         nbGamesWon += 1;
+        
         getStats();
       }
       money += gain;
@@ -272,6 +275,7 @@ async function meetJoueur() {
   } else {
     showMessage('Vous décidez de ne pas jouer.');
   }
+  console.log("nbGamesW" +nbGamesWon);
   showOptions(['Avancer', 'Rentrer chez soi']);
   eventInProgress = false; 
 }

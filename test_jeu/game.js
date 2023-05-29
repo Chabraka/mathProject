@@ -54,7 +54,7 @@ let nbSets = 0;
 let nbGamesWon = 0;
 let nbSetsWon = 0;
 let nbSetsNull = 0;
-let choixSets = [{1: 0}, {2: 0}, {3: 0}, {4: 0}, {5: 0}, {6: 0}]
+let choixSets = [{1: 0}, {2: 0}, {3: 0}, {4: 0}, {5: 0}, {6: 0}];
 
 // Écouteurs d'événements pour les options de dialogue
 document.querySelector('#dialogueOptions').addEventListener('click', function(event) {
@@ -69,6 +69,7 @@ document.querySelector('#dialogueOptions').addEventListener('click', function(ev
 // Fonction pour commencer le jeu
 function startGame() {    
     // Options initiales
+    
     lifePV = 150;
     money = 100;
     maxLifePV = 200;
