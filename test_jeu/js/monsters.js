@@ -18,7 +18,7 @@ async function meetMonsters() {
     { name: 'Dragon', pv: 90, att: 100}
   ];
   
-  const geoNumber = geometrique(paramMeetMonsters, Math.random());
+  /*const geoNumber = geometrique(paramMeetMonsters, Math.random());
   let monster;
   let monsterNb = Math.min(geoNumber, 6-1);
   switch(monsterNb) {
@@ -52,7 +52,32 @@ async function meetMonsters() {
       meetDragon += 1;
       getStats();
       break;
-  }
+  }*/
+
+  const geoNumber = geometrique(paramMeetMonsters, Math.random());
+  console.log(geoNumber);
+let monster;
+let monsterNb;
+
+if (geoNumber <= 3) {
+  monsterNb = 0; // Slime
+} else if (geoNumber <= 5) {
+  monsterNb = 1; // Gobelin
+} else if (geoNumber <= 6) {
+  monsterNb = 2; // Orc
+} else if (geoNumber <= 10) {
+  monsterNb = 3; // Troll
+} else if (geoNumber <= 15) {
+  monsterNb = 4; // Griffon
+} else if (geoNumber <= 20) {
+  monsterNb = 5; // Dragon
+} else {
+  // Si geoNumber est supérieur à 20, vous pouvez générer un nombre aléatoire entre 0 et la longueur du tableau monsters pour choisir un monstre aléatoire.
+  monsterNb = Math.floor(Math.random() * monsters.length);
+}
+monster = monsters[monsterNb];
+
+
 
   showMessage('Vous rencontrez un ' + monster.name + '.');
   await delay(2000);
