@@ -174,7 +174,7 @@ function getStats() {
     p21.textContent = "Pourcentage rencontre Slime : " + meetSlime / meetMonster * 100 + "%";
         statsContent.appendChild(p21);
     let p22 = document.createElement('p');
-    p22.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 1) * 100 + "%";
+    p22.textContent = "Valeur théorique : " + (1 - (probaGeo(paramMeetMonsters, 2) + probaGeo(paramMeetMonsters, 3) + probaGeo(paramMeetMonsters, 4) + probaGeo(paramMeetMonsters, 5) + probaGeo(paramMeetMonsters, 6))) * 100 + "%";
         statsContent.appendChild(p22);
     
         // Gobelin
@@ -234,7 +234,7 @@ function getStats() {
     p31.textContent = "Pourcentage rencontre Dragon : " + meetDragon / meetMonster * 100 + "%";
         statsContent.appendChild(p31);
     let p32 = document.createElement('p');
-    p32.textContent = "Valeur théorique : " + (1 - (probaGeo(paramMeetMonsters, 1) + probaGeo(paramMeetMonsters, 2) + probaGeo(paramMeetMonsters, 3) + probaGeo(paramMeetMonsters, 4) + probaGeo(paramMeetMonsters, 5)) )* 100 + "%";
+    p32.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 6) * 100 + "%";
         statsContent.appendChild(p32);
 
         // Loi Geo

@@ -18,66 +18,48 @@ async function meetMonsters() {
     { name: 'Dragon', pv: 90, att: 100}
   ];
   
-  /*const geoNumber = geometrique(paramMeetMonsters, Math.random());
+  const geoNumber = geometrique(paramMeetMonsters, Math.random());
   let monster;
-  let monsterNb = Math.min(geoNumber, 6-1);
+  let monsterNb = Math.min(geoNumber - 1, 7);
+  console.log(monsterNb)
   switch(monsterNb) {
-    case 0 :
-      monster = monsters[monsterNb];
+    case 1 :
+      monster = monsters[monsterNb - 1];
       meetSlime += 1;
       getStats();
       break;
-    case 1 :
-      monster = monsters[monsterNb];
+    case 2 :
+      monster = monsters[monsterNb - 1];
       meetGobelin += 1;
       getStats();
       break;
-    case 2 :
-      monster = monsters[monsterNb];
+    case 3 :
+      monster = monsters[monsterNb - 1];
       meetOrc += 1;
       getStats();
       break;
-    case 3 :
-      monster = monsters[monsterNb];
+    case 4 :
+      monster = monsters[monsterNb - 1];
       meetTroll += 1;
       getStats();
       break;
-    case 4 :
-      monster = monsters[monsterNb];
+    case 5 :
+      monster = monsters[monsterNb - 1];
       meetGriffon += 1;
       getStats();
       break;
-    case 5 :
-      monster = monsters[monsterNb];
+    case 6 :
+      monster = monsters[monsterNb - 1];
       meetDragon += 1;
       getStats();
       break;
-  }*/
+    case 7 :
+      monster = monsters[monsterNb - 1];
+      meetSlime += 1;
+      getStats();
+      break;
 
-  const geoNumber = geometrique(paramMeetMonsters, Math.random());
-  console.log(geoNumber);
-let monster;
-let monsterNb;
-
-if (geoNumber <= 3) {
-  monsterNb = 0; // Slime
-} else if (geoNumber <= 5) {
-  monsterNb = 1; // Gobelin
-} else if (geoNumber <= 6) {
-  monsterNb = 2; // Orc
-} else if (geoNumber <= 10) {
-  monsterNb = 3; // Troll
-} else if (geoNumber <= 15) {
-  monsterNb = 4; // Griffon
-} else if (geoNumber <= 20) {
-  monsterNb = 5; // Dragon
-} else {
-  // Si geoNumber est supérieur à 20, vous pouvez générer un nombre aléatoire entre 0 et la longueur du tableau monsters pour choisir un monstre aléatoire.
-  monsterNb = Math.floor(Math.random() * monsters.length);
-}
-monster = monsters[monsterNb];
-
-
+  }
 
   showMessage('Vous rencontrez un ' + monster.name + '.');
   await delay(2000);
