@@ -44,6 +44,7 @@ function updateParams() {
 
 
 function getStats() {
+    updateParams();
     const statsContent = document.querySelector('.stats-content');
     statsContent.innerHTML = '';
 
