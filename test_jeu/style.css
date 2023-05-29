@@ -134,6 +134,14 @@ img[alt="characters"]{
     width: 200px;
 }
 
+img[alt="Slime"], img[alt="Chauve-souris"], img[alt="Shaman"], img[alt="Golem"], img[alt="Ombre"]{
+    width: 125px;
+}
+
+img[alt="Dragon"]{
+    width: 400px;
+}
+
 
 
 .dialogue {

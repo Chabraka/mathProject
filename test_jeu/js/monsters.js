@@ -10,42 +10,42 @@ async function meetMonsters() {
   meetMonster += 1;
 
   const monsters = [
-    { name: 'Slime', pv: 10, att: 5},
-    { name: 'Gobelin', pv: 20, att: 10},
-    { name: 'Orc',  pv: 30, att: 20},
-    { name: 'Troll', pv: 40, att: 30},
-    { name: 'Griffon', pv: 50, att: 50},
+    { name: 'Chauve-souris', pv: 10, att: 5},
+    { name: 'Slime', pv: 20, att: 10},
+    { name: 'Shaman',  pv: 30, att: 20},
+    { name: 'Golem', pv: 40, att: 30},
+    { name: 'Ombre', pv: 50, att: 50},
     { name: 'Dragon', pv: 90, att: 100}
   ];
   
   const geoNumber = geometrique(paramMeetMonsters, Math.random());
   let monster;
-  let monsterNb = Math.min(geoNumber - 1, 7);
+  let monsterNb = Math.min(geoNumber - 1, 6);
   console.log(monsterNb)
   switch(monsterNb) {
     case 1 :
       monster = monsters[monsterNb - 1];
-      meetSlime += 1;
+      meetChauveSouris += 1;
       getStats();
       break;
     case 2 :
       monster = monsters[monsterNb - 1];
-      meetGobelin += 1;
+      meetSlime += 1;
       getStats();
       break;
     case 3 :
       monster = monsters[monsterNb - 1];
-      meetOrc += 1;
+      meetShaman += 1;
       getStats();
       break;
     case 4 :
       monster = monsters[monsterNb - 1];
-      meetTroll += 1;
+      meetGolem += 1;
       getStats();
       break;
     case 5 :
       monster = monsters[monsterNb - 1];
-      meetGriffon += 1;
+      meetOmbre += 1;
       getStats();
       break;
     case 6 :
@@ -53,14 +53,9 @@ async function meetMonsters() {
       meetDragon += 1;
       getStats();
       break;
-    case 7 :
-      monster = monsters[0];
-      meetSlime += 1;
-      getStats();
-      break;
-
   }
 
+  addImage("images/monsters/" + monster.name.toLowerCase() + ".png", monster.name);
   showMessage('Vous rencontrez un ' + monster.name + '.');
   await delay(2000);
 
@@ -128,6 +123,7 @@ async function meetMonsters() {
       }
     } 
     if (lifePV > 0 && monster.name != 'Dragon') {
+        clearImage()
         showMessage('Vous pouvez désormais continuer votre route.');
         showOptions(['Avancer', 'Rentrer chez soi']);
     }
@@ -150,6 +146,7 @@ async function meetMonsters() {
       showOptions(['']);
       await delay(2000);
 
+      clearImage()
       showMessage('Vous vous enfuyez enfin.');
       await delay(2000);
     } else { 
@@ -157,6 +154,7 @@ async function meetMonsters() {
       getStats();
     }
     if (lifePV > 0) {
+      clearImage()
       showMessage('Vous vous retournez et reprenez votre chemin.');
       showOptions(['Avancer', 'Rentrer chez soi']);
     }

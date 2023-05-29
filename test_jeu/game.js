@@ -33,11 +33,11 @@ let soigneGratuitement = 0;
 
 // Meet monsters
 let meetMonster = 0;
+let meetChauveSouris = 0;
 let meetSlime = 0;
-let meetGobelin = 0;
-let meetOrc = 0;
-let meetTroll = 0;
-let meetGriffon = 0;
+let meetShaman = 0;
+let meetGolem = 0;
+let meetOmbre = 0;
 let meetDragon = 0;
 
 // Fight

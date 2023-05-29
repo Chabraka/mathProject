@@ -165,6 +165,18 @@ function getStats() {
     p20.textContent = "Valeur théorique : " + (meetHuman * (1 - paramRadeForCharacters) + meetMonster * (1 - paramRadeForMonsters))/meetSomeone * 100 + "%";
         statsContent.appendChild(p20);
 
+        // Chauve-souris
+    let h3_9 = document.createElement('h3');
+    h3_9.textContent = "Statistiques sur les Chauve-souris";
+        statsContent.appendChild(h3_9);
+
+    let p23 = document.createElement('p');
+    p23.textContent = "Pourcentage rencontre Chauve-souris : " + meetChauveSouris / meetMonster * 100 + "%";
+        statsContent.appendChild(p23);
+    let p24 = document.createElement('p');
+    p24.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 2) * 100 + "%";
+        statsContent.appendChild(p24);
+        
         // Slime
     let h3_8 = document.createElement('h3');
     h3_8.textContent = "Statistiques sur les slimes";
@@ -174,52 +186,41 @@ function getStats() {
     p21.textContent = "Pourcentage rencontre Slime : " + meetSlime / meetMonster * 100 + "%";
         statsContent.appendChild(p21);
     let p22 = document.createElement('p');
-    p22.textContent = "Valeur théorique : " + (1 - (probaGeo(paramMeetMonsters, 2) + probaGeo(paramMeetMonsters, 3) + probaGeo(paramMeetMonsters, 4) + probaGeo(paramMeetMonsters, 5) + probaGeo(paramMeetMonsters, 6))) * 100 + "%";
+    p22.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 1) * 100 + "%";
         statsContent.appendChild(p22);
     
-        // Gobelin
-    let h3_9 = document.createElement('h3');
-    h3_9.textContent = "Statistiques sur les gobelins";
-        statsContent.appendChild(h3_9);
 
-    let p23 = document.createElement('p');
-    p23.textContent = "Pourcentage rencontre Gobelin : " + meetGobelin / meetMonster * 100 + "%";
-        statsContent.appendChild(p23);
-    let p24 = document.createElement('p');
-    p24.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 2) * 100 + "%";
-        statsContent.appendChild(p24);
-
-        // Orc
+        // Shaman
     let h3_10 = document.createElement('h3');
-    h3_10.textContent = "Statistiques sur les orcs";
+    h3_10.textContent = "Statistiques sur les Shamans";
         statsContent.appendChild(h3_10);
 
     let p25 = document.createElement('p');
-    p25.textContent = "Pourcentage rencontre Orc : " + meetOrc / meetMonster * 100 + "%";
+    p25.textContent = "Pourcentage rencontre Shaman : " + meetShaman / meetMonster * 100 + "%";
         statsContent.appendChild(p25);
     let p26 = document.createElement('p');
     p26.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 3) * 100 + "%";
         statsContent.appendChild(p26);
 
-        // Troll
+        // Golem
     let h3_11 = document.createElement('h3');
-    h3_11.textContent = "Statistiques sur les trolls";
+    h3_11.textContent = "Statistiques sur les Golems";
         statsContent.appendChild(h3_11);
 
     let p27 = document.createElement('p');
-    p27.textContent = "Pourcentage rencontre Troll : " + meetTroll / meetMonster * 100 + "%";
+    p27.textContent = "Pourcentage rencontre Golem : " + meetGolem / meetMonster * 100 + "%";
         statsContent.appendChild(p27);    
     let p28 = document.createElement('p');
     p28.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 4) * 100 + "%";
         statsContent.appendChild(p28);
 
-        // Griffon
+        // Ombre
     let h3_12 = document.createElement('h3');
-    h3_12.textContent = "Statistiques sur les griffons";
+    h3_12.textContent = "Statistiques sur les Ombres";
         statsContent.appendChild(h3_12);
 
     let p29 = document.createElement('p');
-    p29.textContent = "Pourcentage rencontre Griffon : " + meetGriffon / meetMonster * 100 + "%";
+    p29.textContent = "Pourcentage rencontre Ombre : " + meetOmbre / meetMonster * 100 + "%";
         statsContent.appendChild(p29);
     let p30 = document.createElement('p');
     p30.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 5) * 100 + "%";
@@ -234,7 +235,7 @@ function getStats() {
     p31.textContent = "Pourcentage rencontre Dragon : " + meetDragon / meetMonster * 100 + "%";
         statsContent.appendChild(p31);
     let p32 = document.createElement('p');
-    p32.textContent = "Valeur théorique : " + probaGeo(paramMeetMonsters, 6) * 100 + "%";
+    p32.textContent = "Valeur théorique : " + (1 - (probaGeo(paramMeetMonsters, 1) + probaGeo(paramMeetMonsters, 2) + probaGeo(paramMeetMonsters, 3) + probaGeo(paramMeetMonsters, 4) + probaGeo(paramMeetMonsters, 5))) * 100 + "%";
         statsContent.appendChild(p32);
 
         // Loi Geo
