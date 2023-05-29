@@ -20,7 +20,7 @@ async function meetMonsters() {
   
   const geoNumber = geometrique(paramMeetMonsters, Math.random());
   let monster;
-  let monsterNb = Math.min(geoNumber, 6) - 1;
+  let monsterNb = Math.min(geoNumber, 6-1);
   switch(monsterNb) {
     case 0 :
       monster = monsters[monsterNb];
@@ -154,7 +154,7 @@ async function meetMonsters() {
       GameOver();
     }
   }
-  
+
   rademacherNumber = rademacher(paramRadeForMonsters, Math.random());
   eventInProgress2 = false; 
 }

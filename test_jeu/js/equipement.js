@@ -68,7 +68,7 @@ function getRandomEquipment(category) {
       return null;
   }
 
-  let indexObj = 0;
+  let indexObj = 1;
   let param = 1/2;
   console.log('Probabilités des objets :');
   for (const obj of categoryObjects) {
