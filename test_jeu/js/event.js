@@ -71,3 +71,10 @@ function GameOver() {
     showMessage('Game over - Vous n\'avez pas survécu au voyage.');
     showOptions(['Réessayer']);
 }
+
+function GameWin() {
+    clearImage();
+    changeBackground('images/background/portail.jpg');
+    showMessage('Win - Vous avez vaincu le dragon ! Vous avez gagné !');
+    showOptions(['Réessayer']);
+}
