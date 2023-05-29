@@ -70,7 +70,7 @@ document.querySelector('#dialogueOptions').addEventListener('click', function(ev
 function startGame() {    
     // Options initiales
     lifePV = 150;
-    money = 1000;
+    money = 100;
     maxLifePV = 200;
 
     paramMeetCharacters = 6 ;
