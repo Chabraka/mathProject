@@ -5,31 +5,22 @@
     <link rel="icon" href="images/icone_game.png">
     <script src="https://kit.fontawesome.com/d17d0ed25e.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
-    
 </head>
 <body>
     <div class="interface">
-
         <div class="character">
             <img src="images/player.png" alt="Personnage">
             <div class="stat-character">
                 <p class="lifePV"></p>
                 <div><i class="fa-solid fa-sack-dollar fa-xl"></i><span class="money"> </span></div>
             </div>
-            <!--<div class="params">
-                <p class="stronger-monsters"></p>
-                <p class="change-chars"></p>
-                <p class="meet-chars"></p>
-                <p class="meet-monsters"></p>
-            </div>-->
-
             
             <div class="params">
 
                 <div>
                     <div>
                         <p>
-                        <label for="stronger-monsters-input">Monstres plus forts : </label>
+                        <label for="stronger-monsters-input">Apparition monstres plus faibles : </label>
                         <input type="range" id="stronger-monsters-input" min="0.0" max="1.0" step="0.01">
                         <span id="stronger-monsters-value"></span>
                         </p>
@@ -37,7 +28,7 @@
                   
                     <div>
                         <p>
-                            <label for="change-chars-input">Changer les personnages : </label>
+                            <label for="change-chars-input">Changer apparition personnages : </label>
                             <input type="range" id="change-chars-input" min="4" max="8" step="1">
                             <span id="change-chars-value"></span>
                         </p>
@@ -49,7 +40,7 @@
                   
                     <div>
                         <p>
-                        <label for="meet-chars-input">Rencontrer des personnages : </label>
+                        <label for="meet-chars-input">Rencontrer personnages après un autre : </label>
                         <input type="range" id="meet-chars-input" min="0.0" max="1.0" step="0.01">
                         <span id="meet-chars-value"></span>
                         </p>
@@ -57,7 +48,7 @@
                     
                     <div>
                         <p>
-                        <label for="meet-monsters-input">Rencontrer des monstres : </label>
+                        <label for="meet-monsters-input">Rencontrer personnages après un monstre : </label>
                         <input type="range" id="meet-monsters-input"min="0.0" max="1.0" step="0.01">
                         <span id="meet-monsters-value"></span>
                         </p>
@@ -65,13 +56,6 @@
                 </div>
             </div>
         </div>
-              
-        
-
-        <!-- <div class="utils">
-            <i class="fa-solid fa-signal fa-xl"></i>
-            <i class="fa-solid fa-xmark fa-xl"></i>
-        </div>-->
         
         <div id="statsWindow" class="stats-window">
             <div class="stats-content">
@@ -80,7 +64,6 @@
             <i id="closeBtn" class="fa-solid fa-xmark fa-xl"></i>
         </div>
         <i id="statsBtn" class="fa-solid fa-signal fa-xl"></i>
-        <!--<button id="statsBtn" class="fa-solid fa-signal fa-xl"></button>-->
              
     </div>
 
@@ -98,7 +81,6 @@
             </div>
         </div>
     </div>
-
  
     <script src="js/lois/loi_binomiale.js"></script>
     <script src="js/lois/loi_rademacher.js"></script>
