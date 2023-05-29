@@ -54,7 +54,7 @@ async function meetMonsters() {
       getStats();
       break;
     case 7 :
-      monster = monsters[monsterNb - 1];
+      monster = monsters[0];
       meetSlime += 1;
       getStats();
       break;
