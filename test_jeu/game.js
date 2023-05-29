@@ -75,7 +75,7 @@ function startGame() {
 
     paramMeetCharacters = 6 ;
     paramMeetMonsters = 0.35 ;
-    paramRadeForCharacters = 1/3 ;
+    paramRadeForCharacters = 0.33 ;
     paramRadeForMonsters = 1/2 ;
     updateStats();
     updateParams();
