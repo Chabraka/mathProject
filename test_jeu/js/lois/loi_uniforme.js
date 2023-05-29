@@ -1,7 +1,17 @@
 // Functions
-function uniforme(n) {
+function probaUniforme(n) {
     return 1/(n);
 };
+
+function uniforme(n, rand) {
+    let k = 0;
+    let proba = 0;
+    while(proba < rand) {
+        proba += probaUniforme(n);
+        k++;
+    }
+    return k;
+}
 
 function moyUniforme(n) {
     return 1/(n);

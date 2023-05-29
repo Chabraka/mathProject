@@ -66,9 +66,9 @@ async function meetMonsters() {
   if(playerChoice == 'attaquer') {
     choixAttaque += 1;
     while(lifePV > 0 && monster.pv > 0) {
-      let random = Math.floor(Math.random() * 10) % 5;
-      switch(random) {
-      case 0:
+      let randomUnif = uniforme(5, Math.random());
+      switch(randomUnif) {
+      case 1:
         infligeDegats += 1;
         getStats();
         showMessage('Vous êtes rapide et lui donnez un coup bien placé !');
@@ -77,7 +77,7 @@ async function meetMonsters() {
         await delay(2000);
         break;
       
-      case 1:
+      case 2:
         infligeDegats += 1;
         getStats();
         showMessage('Vous l\'attaquez par devant.');
@@ -86,7 +86,7 @@ async function meetMonsters() {
         await delay(2000);
         break;
 
-      case 2:
+      case 3:
         pasDegats += 1;
         getStats();
         showMessage('Vous lui faites peur sans avoir à bouger le petit doigt.');
@@ -95,7 +95,7 @@ async function meetMonsters() {
         await delay(2000);
         break;
 
-      case 3:
+      case 4:
         prendDegats +=1;
         getStats();
         showMessage('Il est plus rapide que vous et vous prenez une belle droite.');
@@ -109,7 +109,7 @@ async function meetMonsters() {
         monster.pv = 0;
         break;
 
-      case 4:
+      case 5:
         prendDegats += 1;
         getStats();
         showMessage('Il vous attaque.');

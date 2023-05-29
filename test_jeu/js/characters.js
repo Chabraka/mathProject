@@ -83,11 +83,12 @@ async function meetAventurier() {
 
   addImage("images/characters/aventurier.png", "characters");
 
-  const action = Math.floor(Math.random() * 3) + 1;
+  const actionUnif = uniforme(3, Math.random());
+  console.log(actionUnif)
   let category = ['artefact', 'bouclier', 'épée']; // Ensemble de valeurs possibles pour la variable aléatoire non numérique
   let random = Math.floor(Math.random() * 10) % 3; // Paramètre pour la variable aléatoire non numérique
 
-  if (action === 1) {
+  if (actionUnif === 1) {
     showMessage('L\'aventurier vous bouscule et vous perdez un demi point de vie.');
     const halfHeart = Math.ceil(maxLifePV / 20);
     lifePV -= halfHeart;
@@ -104,23 +105,23 @@ async function meetAventurier() {
     await updateStatsWithEquipment(equipment);
     showOptions(['Avancer', 'Rentrer chez soi']);
   } 
-  else if (action === 2) {
+  else if (actionUnif === 2) {
     const equipment = getRandomEquipment(category[random]); // Variable aléatoire non numérique
     showMessage('L\'aventurier vous dit qu\'il porte trop de choses et vous donne un équipement aléatoire : ' + equipment.name);
     showOptions(['']);
     await updateStatsWithEquipment(equipment);
     showOptions(['Avancer', 'Rentrer chez soi']);
   } 
-  else if (action === 3) {
+  else if (actionUnif === 3) {
     showMessage('L\'aventurier vous propose un équipement aléatoire.');
     showOptions(['Accepter', 'Refuser']);
 
     const option = await waitForOption();
 
     if (option === 'Accepter') {
-      const stealChance = Math.random() < 0.1;
+      const stealChance = bernouilli(0.1, Math.random());
 
-      if (stealChance) {
+      if (stealChance == 1) {
         showMessage('L\'aventurier vous vole 50$ et s\'en va.');
         money -= 50;
         if (money < 0) {
