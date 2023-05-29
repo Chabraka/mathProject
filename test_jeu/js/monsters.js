@@ -106,7 +106,7 @@ async function meetMonsters() {
         prendDegats +=1;
         getStats();
         showMessage('Il est plus rapide que vous et vous prenez une belle droite.');
-        lifePV -= monster.att * 1.5;
+        lifePV -= monster.att * 1.5 - defense/2;
         updateStats();
         showOptions(['']);
         await delay(2000);
@@ -120,7 +120,7 @@ async function meetMonsters() {
         prendDegats += 1;
         getStats();
         showMessage('Il vous attaque.');
-        lifePV -= monster.att;
+        lifePV -= monster.att - defense/2;
         updateStats();
         showOptions(['']);
         await delay(2000);
