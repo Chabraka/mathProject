@@ -14,7 +14,6 @@ body {
 .character {
     display: flex;
     align-items: center;
-    
 }
 
 .character img {
@@ -52,6 +51,15 @@ body {
 }
 
 /*-------------  Stats  ---------------*/
+.fa-signal{
+    font-size: 2.8rem;
+    cursor: pointer;
+}
+
+.fa-signal:hover{
+    color:  rgb(86, 82, 133);
+}
+
 
 .stats-window {
     position: fixed;
@@ -59,8 +67,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
-    width: 400px;
+    background-color: rgb(40, 37, 66);
+    width: 900px;
     max-height: 600px;
     overflow-y: auto;
     padding: 20px;
@@ -72,12 +80,22 @@ body {
     /* Styles pour le contenu des statistiques */
 }
 
+
+
 .fa-xmark {
     position: absolute;
     top: 10px;
     right: 10px;
     cursor: pointer;
 }
+
+/*-------------  Params  ---------------*/
+
+.params{
+    display: flex;
+}
+
+
 
 /*-------------Game-------------------*/
 

@@ -72,8 +72,14 @@ function startGame() {
     lifePV = 150;
     money = 1000;
     maxLifePV = 200;
+
+    paramMeetCharacters = 6 ;
+    paramMeetMonsters = 0.35 ;
+    paramRadeForCharacters = 1/3 ;
+    paramRadeForMonsters = 1/2 ;
     updateStats();
     updateParams();
+    //updateParams();
     changeBackground(background);
     showMessage('Bienvenue dans Fantastic Adventure ! Choisissez votre prochaine action.');
     showOptions(['Rester chez soi', 'Sortir']);

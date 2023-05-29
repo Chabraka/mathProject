@@ -16,18 +16,62 @@
                 <p class="lifePV"></p>
                 <div><i class="fa-solid fa-sack-dollar fa-xl"></i><span class="money"> </span></div>
             </div>
-            <div class="params">
+            <!--<div class="params">
                 <p class="stronger-monsters"></p>
                 <p class="change-chars"></p>
                 <p class="meet-chars"></p>
                 <p class="meet-monsters"></p>
+            </div>-->
+
+            
+            <div class="params">
+
+                <div>
+                    <div>
+                        <p>
+                        <label for="stronger-monsters-input">Monstres plus forts : </label>
+                        <input type="range" id="stronger-monsters-input" min="0.0" max="1.0" step="0.01">
+                        <span id="stronger-monsters-value"></span>
+                        </p>
+                    </div>
+                  
+                    <div>
+                        <p>
+                            <label for="change-chars-input">Changer les personnages : </label>
+                            <input type="range" id="change-chars-input" min="0" max="100" step="1">
+                            <span id="change-chars-value"></span>
+                        </p>
+                    </div>
+
+                </div>
+
+                <div>
+                  
+                    <div>
+                        <p>
+                        <label for="meet-chars-input">Rencontrer des personnages : </label>
+                        <input type="range" id="meet-chars-input" min="0.0" max="1.0" step="0.01">
+                        <span id="meet-chars-value"></span>
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <p>
+                        <label for="meet-monsters-input">Rencontrer des monstres : </label>
+                        <input type="range" id="meet-monsters-input"min="0.0" max="1.0" step="0.01">
+                        <span id="meet-monsters-value"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
+              
+        
 
-        <div class="utils">
+        <!-- <div class="utils">
             <i class="fa-solid fa-signal fa-xl"></i>
             <i class="fa-solid fa-xmark fa-xl"></i>
-        </div>
+        </div>-->
         
         <div id="statsWindow" class="stats-window">
             <div class="stats-content">
@@ -35,7 +79,8 @@
             </div>
             <i id="closeBtn" class="fa-solid fa-xmark fa-xl"></i>
         </div>
-        <button id="statsBtn" class="fa-solid fa-signal fa-xl"></button>
+        <i id="statsBtn" class="fa-solid fa-signal fa-xl"></i>
+        <!--<button id="statsBtn" class="fa-solid fa-signal fa-xl"></button>-->
              
     </div>
 
@@ -54,6 +99,7 @@
         </div>
     </div>
 
+ 
     <script src="js/lois/loi_binomiale.js"></script>
     <script src="js/lois/loi_rademacher.js"></script>
     <script src="js/lois/loi_bernouilli.js"></script>
@@ -67,6 +113,7 @@
     <script src="js/monsters.js"></script>
     <script src="js/equipement.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/variable_modifiable.js"></script>
     <script src="game.js"></script>
 </body>
 </html>

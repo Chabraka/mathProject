@@ -33,12 +33,14 @@ function updateStats() {
   document.querySelector('.money').textContent = money;
 }
 
+
 function updateParams() {
-    document.querySelector('.stronger-monsters').textContent = "Monstres plus forts : " + paramMeetMonsters;
-    document.querySelector('.change-chars').textContent = "Apparition des personnages : " + paramMeetCharacters;
-    document.querySelector('.meet-chars').textContent = "Plus de personnages  : " + paramRadeForCharacters;
-    document.querySelector('.meet-monsters').textContent = "Moins de monstres : " + paramRadeForMonsters;
-}
+    document.getElementById('stronger-monsters-value').textContent = paramMeetMonsters;
+    document.getElementById('change-chars-value').textContent = paramMeetCharacters;
+    document.getElementById('meet-chars-value').textContent = paramRadeForCharacters;
+    document.getElementById('meet-monsters-value').textContent = paramRadeForMonsters;
+
+  }
 
 
 function getStats() {

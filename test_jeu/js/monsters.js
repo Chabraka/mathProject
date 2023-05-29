@@ -124,6 +124,9 @@ async function meetMonsters() {
         showMessage('Vous pouvez désormais continuer votre route.');
         showOptions(['Avancer', 'Rentrer chez soi']);
     }
+    else{
+      GameOver();
+    }
   } 
   else {
     choixFuite += 1;
