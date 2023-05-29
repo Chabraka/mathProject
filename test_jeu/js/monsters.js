@@ -24,32 +24,27 @@ async function meetMonsters() {
   console.log(monsterNb)
   switch(monsterNb) {
     case 1 :
-      monster = monsters[5]
-      //monster = monsters[monsterNb - 1];
+      monster = monsters[monsterNb - 1];
       meetSlime += 1;
       getStats();
       break;
     case 2 :
-      monster = monsters[5]
-      // monster = monsters[monsterNb - 1];
+      monster = monsters[monsterNb - 1];
       meetGobelin += 1;
       getStats();
       break;
     case 3 :
-      monster = monsters[5]
-      //monster = monsters[monsterNb - 1];
+      monster = monsters[monsterNb - 1];
       meetOrc += 1;
       getStats();
       break;
     case 4 :
-      monster = monsters[5]
-      //monster = monsters[monsterNb - 1];
+      monster = monsters[monsterNb - 1];
       meetTroll += 1;
       getStats();
       break;
     case 5 :
-      monster = monsters[5]
-      //monster = monsters[monsterNb - 1];
+      monster = monsters[monsterNb - 1];
       meetGriffon += 1;
       getStats();
       break;
